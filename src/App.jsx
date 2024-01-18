@@ -12,11 +12,13 @@ function App() {
     <>
       <div>
       <AddressDetails/>
-<Paymentdetails/>
+{/* <Paymentdetails/> */}
 
       </div>
     </>
   )
 }
+
+
 
 export default App

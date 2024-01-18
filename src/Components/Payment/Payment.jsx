@@ -48,6 +48,9 @@ export  const Paymentdetails = () => {
     cursor: 'pointer',
   };
 
+
+
+  const value = 5000
   return (
     <div style={formContainerStyle}>
       <h2>Payment Details</h2>
@@ -62,7 +65,8 @@ export  const Paymentdetails = () => {
             type="text"
             id="amount"
             name="amount"
-            // placeholder="Enter your card number"
+            value={value}
+             placeholder=" Enter Amount"
             style={inputStyle}
           />
 
