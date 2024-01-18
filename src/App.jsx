@@ -4,17 +4,26 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import { Paymentdetails } from './Components/Payment/Payment'
 import { AddressDetails } from './Components/Payment/Address'
+import Cart from './Components/CartPage/Cart'
+import Login from './Components/UserLogin/Login'
+import { useAuth0 } from "@auth0/auth0-react";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  
+  const { isAuthenticated } = useAuth0();
   return (
     <>
+      
       <div>
-      <AddressDetails/>
-<Paymentdetails/>
+        <AddressDetails />
+        <Paymentdetails />
 
       </div>
+      <Login />
+      {isAuthenticated && (
+        <Cart />
+      )}
+
     </>
   )
 }
