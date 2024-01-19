@@ -3,66 +3,21 @@ import React, { useState } from "react";
 export const AddressDetails = () => {
   const [showPaymentForm, setShowPaymentForm] = useState(false);
   const [value, setValue] = useState(5000);
+  const [card, setcard] = useState(false);
+  const [cod, setcod] = useState(false);
 
-  const formContainerStyle = {
-    maxWidth: "800px",
-    margin: "20px auto",
-    padding: "20px",
-    border: "1px solid #ddd",
-    borderRadius: "8px",
-    backgroundColor: "#fff",
-    boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-  };
+  
+const cardPaymentOption = () =>{
+  setcard(true);
+  setcod(false);
+}
 
-  const formRowStyle = {
-    display: "flex",
-    flexWrap: "wrap",
-    gap: "20px",
-  };
+const codpaymentoption = () =>{
+  setcod(true);
+  setcard(false);
+}
 
-  const formGroupStyle = {
-    flex: "1 1 calc(50% - 10px)",
-    marginBottom: "20px",
-  };
-
-  const labelStyle = {
-    display: "block",
-    marginBottom: "8px",
-    fontSize: "16px",
-    color: "#333",
-    textAlign: "start",
-    fontWeight: "bold",
-  };
-
-  const inputStyle = {
-    width: "100%",
-    padding: "12px",
-    boxSizing: "border-box",
-    border: "1px solid #ddd",
-    borderRadius: "4px",
-    fontSize: "14px",
-  };
-
-  const buttonStyle = {
-    display: "block",
-    width: "20%",
-    padding: "12px",
-    boxSizing: "border-box",
-    border: "none",
-    borderRadius: "4px",
-    backgroundColor: "#007BFF",
-    color: "#fff",
-    fontSize: "16px",
-    cursor: "pointer",
-    margin: "auto",
-  };
-
-  const headingStyle = {
-    fontSize: "1.8em",
-    marginBottom: "20px",
-    color: "#333",
-  };
-
+  
   const handleShippingSubmit = (e) => {
     e.preventDefault();
     alert("Please complete your payment")
@@ -71,7 +26,7 @@ export const AddressDetails = () => {
 
   const handlePaymentSubmit = (e) => {
     e.preventDefault();
-   
+
     console.log("Payment submitted:", {
       cardNumber: e.target.cardNumber.value,
       cardHolder: e.target.cardHolder.value,
@@ -80,20 +35,23 @@ export const AddressDetails = () => {
 
 
     });
+
    
 
     setTimeout(function () {
-       alert("Payment Successfull ");
-  }, 2000);
+      alert("Payment Successfull ");
+    }, 2000);
 
 
 
-  setTimeout(function () {
-    alert("Order Successfull");
-}, 5000);
+    setTimeout(function () {
+      alert("Order Successfull");
+    }, 5000);
 
   };
 
+
+  
 
 
 
@@ -193,11 +151,34 @@ export const AddressDetails = () => {
           </button>
         </form>
       </div>
-
+      {/* -------------------------------------------------------------------------------------------------------------------------------------------- */}
       {showPaymentForm && (
         <div style={formContainerStyle}>
-          <h2>Payment Details</h2>
-          <form onSubmit={handlePaymentSubmit}>
+          <h2 style={codbuttonb}>Payment Details</h2>
+
+          <div style={paymentoption}>
+
+            <button style={codbuttona} onClick={codpaymentoption}>COD</button>
+            <button><img style={payment_option_imagea} src="https://cdn-icons-png.flaticon.com/128/825/825454.png" alt="paytm" /></button>
+            <button><img style={payment_option_imageb} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlw6JvTiXBSHHAgLi6eOCGWjcKW_uD0XdH9Q&usqp=CAU" alt="phone pay" /></button>
+            <button><img style={payment_option_imagea} src="https://cdn-icons-png.flaticon.com/128/6124/6124998.png" alt="Google pay" /></button>
+            <button onClick={cardPaymentOption}><img style={payment_option_imagea} src="https://cdn-icons-png.flaticon.com/128/14035/14035060.png" alt="" />
+            </button>
+
+
+          </div>
+
+
+
+
+         
+        </div>
+      )}
+         
+
+      {/* card payment option */}
+         { card && 
+          <div style={formContainerStyle}> <form onSubmit={handlePaymentSubmit}>
             <div style={formGroupStyle}>
               <label htmlFor="amount" style={labelStyle}>
                 Amount <span style={{ color: "red" }}>*</span>
@@ -218,7 +199,7 @@ export const AddressDetails = () => {
                 Card Number <span style={{ color: "red" }}>*</span>
               </label>
               <input
-                type="text"
+                 type="number"
                 id="cardNumber"
                 name="cardNumber"
                 placeholder="Enter your card number"
@@ -244,7 +225,7 @@ export const AddressDetails = () => {
                 Expiry Date <span style={{ color: "red" }}>*</span>
               </label>
               <input
-                type="text"
+                type="number"
                 id="expiryDate"
                 name="expiryDate"
                 placeholder="MM/YY"
@@ -254,10 +235,10 @@ export const AddressDetails = () => {
             </div>
             <div style={formGroupStyle}>
               <label htmlFor="cvc" style={labelStyle}>
-                CVC <span style={{ color: "red" }}>*</span>
+                CVV <span style={{ color: "red" }}>*</span>
               </label>
               <input
-                type="text"
+                type="number"
                 id="cvc"
                 name="cvc"
                 placeholder="Enter the security code"
@@ -268,9 +249,173 @@ export const AddressDetails = () => {
             <button type="submit" style={buttonStyle}>
               Pay Now
             </button>
-          </form>
+          </form> 
+          </div> 
+}
+{/* cash on delivery */}
+
+
+{cod &&
+<div style={formContainerStyle}>
+      <h2 style={headingStyle}>Cash on Delivery</h2>
+      <form >
+        <div style={formGroupStyle}>
+          <label htmlFor="phoneNumber" style={labelStyle}>
+            Phone Number <span style={{ color: "red" }}>*</span>
+          </label>
+          <input
+            type="tel"
+            id="phoneNumber"
+            placeholder="Enter your phone number"
+            required
+            style={inputStyle}
+          />
         </div>
-      )}
+        <div style={formGroupStyle}>
+          <label htmlFor="amount" style={labelStyle}>
+            Order Amount <span style={{ color: "red" }}>*</span>
+          </label>
+          <input
+            type="text"
+            id="amount"
+            placeholder="Enter the order amount"
+            required
+            style={inputStyle}
+          />
+        </div>
+        <div style={formGroupStyle}>
+          <label style={labelStyle}>Delivery Charges</label>
+          <span style={{ fontSize: "14px", color: "#333" }}>
+            Free (For Cash on Delivery)
+          </span>
+        </div>
+        <button type="submit" style={buttonStyle}>
+          Place Order
+        </button>
+      </form>
+    </div>
+}
+
+{/*  paytm payment option  */}
+
+<div style={formContainerStyle}>
+  <p style={{textAlign: "center", fontSize: "19px"}}>Pay to finish placing your order</p>
+  <h2 style={{fontWeight:'bold', fontSize:"32px", marginLeft: "25px"}}>₹ 2000</h2>
+  <div style={{display: "flex", flexDirection: "row"}}>
+    <img  style={{height: "35px", width: "80px"}} src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/paytm-icon.png" alt="Paytm Logo" />
+    <h6>Paytm Account</h6>
+    </div>
+    <button style={{fontWeight:"bold", fontSize}}>Pay ₹ 2000</button>
+   
+ 
+ 
+</div>
+
+
+
+
     </>
   );
+}; 
+
+
+
+
+
+
+
+
+
+
+
+
+
+const formContainerStyle = {
+  maxWidth: "800px",
+  margin: "20px auto",
+  padding: "20px",
+  border: "1px solid #ddd",
+  borderRadius: "8px",
+  backgroundColor: "#fff",
+  boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
 };
+
+const formRowStyle = {
+  display: "flex",
+  flexWrap: "wrap",
+  gap: "20px",
+};
+
+const formGroupStyle = {
+  flex: "1 1 calc(50% - 10px)",
+  marginBottom: "20px",
+};
+
+const labelStyle = {
+  display: "block",
+  marginBottom: "8px",
+  fontSize: "16px",
+  color: "#333",
+  textAlign: "start",
+  fontWeight: "bold",
+};
+
+const inputStyle = {
+  width: "100%",
+  padding: "12px",
+  boxSizing: "border-box",
+  border: "1px solid #ddd",
+  borderRadius: "4px",
+  fontSize: "14px",
+};
+
+const buttonStyle = {
+  display: "block",
+  width: "20%",
+  padding: "12px",
+  boxSizing: "border-box",
+  border: "none",
+  borderRadius: "4px",
+  backgroundColor: "#007BFF",
+  color: "#fff",
+  fontSize: "16px",
+  cursor: "pointer",
+  margin: "auto",
+};
+
+const headingStyle = {
+  fontSize: "1.8em",
+  marginBottom: "20px",
+  color: "#333",
+};
+
+const paymentoption = {
+  display: "flex",
+  flexDirection: "row",
+  alignItem: "center",
+  gap: "80px",
+  justifyContent: "space-between",
+  height:"170px"
+
+}
+
+const payment_option_imagea = {
+  height: "70px",
+  width: "70px"
+}
+
+const payment_option_imageb = {
+  height: "50px",
+  width: "50px",
+  borderRadius:"5px"
+}
+const codbuttona ={
+  fontWeight: "bold",
+  fontSize:"22px"
+}
+
+const codbuttonb ={
+  fontWeight: "bold",
+  fontSize:"22px",
+  textAlign:"center"
+}
