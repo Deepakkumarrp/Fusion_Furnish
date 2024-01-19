@@ -1,7 +1,13 @@
 import React from 'react'
 import "./CartElement.css"
+import { useDispatch } from "react-redux";
+import { decreaseQty, increaseQty, removeFromCart } from '../CartRedux/action';
 
-export const CartElement = () => {
+
+
+export const CartElement = ({name, seller, image, price, discount, quantity}) => {
+  const discountPrice = price * quantity - price * quantity * (discount / 100);
+  const dispatch = useDispatch();
   return (
     <div className="mainCartElement">
     <div id="cartElementContainer">
