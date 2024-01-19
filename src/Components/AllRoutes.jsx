@@ -11,7 +11,6 @@ export default function AllRoutes(){
         <Route path="/"  />
         {/* Raushan add Login and Sign below */}
         {/* <Route path="/login"/> */}
-        <Route path="/products" />
         {/* Poornima do edit below if required */}
         <Route path="/payment" element={<Paymentdetails />}/>
         <Route path="/address" element={<AddressDetails />} />
