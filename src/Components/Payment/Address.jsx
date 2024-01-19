@@ -5,19 +5,53 @@ export const AddressDetails = () => {
   const [value, setValue] = useState(5000);
   const [card, setcard] = useState(false);
   const [cod, setcod] = useState(false);
+  const [phonepay, setPhonpay] = useState(false);
+  const [googlepay, setGooglepay] = useState(false);
+  const [payTm, setpayTm] = useState(false);
 
-  
-const cardPaymentOption = () =>{
-  setcard(true);
-  setcod(false);
-}
 
-const codpaymentoption = () =>{
-  setcod(true);
-  setcard(false);
-}
 
-  
+  const cardPaymentOption = () => {
+    setcard(true);
+    setcod(false);
+    setGooglepay(false);
+    setPhonpay(false);
+    setpayTm(false);
+  }
+
+  const codpaymentoption = () => {
+    setcod(true);
+    setcard(false);
+    setGooglepay(false);
+    setPhonpay(false);
+    setpayTm(false);
+  }
+
+
+  const phonepayoption = () => {
+    setPhonpay(true);
+    setGooglepay(false);
+    setpayTm(false);
+    setcod(false);
+    setcard(false);
+  }
+  const googlepayoption = () => {
+    setGooglepay(true);
+    setPhonpay(false);
+    setpayTm(false);
+    setcod(false);
+    setcard(false);
+  }
+  const paytmoption = () => {
+    setpayTm(true);
+    setGooglepay(false);
+    setPhonpay(false);
+    setcod(false);
+    setcard(false);
+  }
+
+
+
   const handleShippingSubmit = (e) => {
     e.preventDefault();
     alert("Please complete your payment")
@@ -36,7 +70,7 @@ const codpaymentoption = () =>{
 
     });
 
-   
+
 
     setTimeout(function () {
       alert("Payment Successfull ");
@@ -51,7 +85,7 @@ const codpaymentoption = () =>{
   };
 
 
-  
+
 
 
 
@@ -159,9 +193,9 @@ const codpaymentoption = () =>{
           <div style={paymentoption}>
 
             <button style={codbuttona} onClick={codpaymentoption}>COD</button>
-            <button><img style={payment_option_imagea} src="https://cdn-icons-png.flaticon.com/128/825/825454.png" alt="paytm" /></button>
-            <button><img style={payment_option_imageb} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlw6JvTiXBSHHAgLi6eOCGWjcKW_uD0XdH9Q&usqp=CAU" alt="phone pay" /></button>
-            <button><img style={payment_option_imagea} src="https://cdn-icons-png.flaticon.com/128/6124/6124998.png" alt="Google pay" /></button>
+            <button onClick={paytmoption}><img style={payment_option_imagea} src="https://cdn-icons-png.flaticon.com/128/825/825454.png" alt="paytm" /></button>
+            <button onClick={phonepayoption}><img style={payment_option_imageb} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlw6JvTiXBSHHAgLi6eOCGWjcKW_uD0XdH9Q&usqp=CAU" alt="phone pay" /></button>
+            <button onClick={googlepayoption}><img style={payment_option_imagea} src="https://cdn-icons-png.flaticon.com/128/6124/6124998.png" alt="Google pay" /></button>
             <button onClick={cardPaymentOption}><img style={payment_option_imagea} src="https://cdn-icons-png.flaticon.com/128/14035/14035060.png" alt="" />
             </button>
 
@@ -171,152 +205,169 @@ const codpaymentoption = () =>{
 
 
 
-         
+
         </div>
       )}
-         
+
 
       {/* card payment option */}
-         { card && 
-          <div style={formContainerStyle}> <form onSubmit={handlePaymentSubmit}>
+      {card &&
+        <div style={formContainerStyle}> <form onSubmit={handlePaymentSubmit}>
+          <div style={formGroupStyle}>
+            <label htmlFor="amount" style={labelStyle}>
+              Amount <span style={{ color: "red" }}>*</span>
+            </label>
+            <input
+              type="text"
+              id="amount"
+              name="amount"
+              value={value}
+              placeholder=" Enter Amount"
+              required
+              style={inputStyle}
+              readOnly
+            />
+          </div>
+          <div style={formGroupStyle}>
+            <label htmlFor="cardNumber" style={labelStyle}>
+              Card Number <span style={{ color: "red" }}>*</span>
+            </label>
+            <input
+              type="number"
+              id="cardNumber"
+              name="cardNumber"
+              placeholder="Enter your card number"
+              required
+              style={inputStyle}
+            />
+          </div>
+          <div style={formGroupStyle}>
+            <label htmlFor="cardHolder" style={labelStyle}>
+              Card Holder <span style={{ color: "red" }}>*</span>
+            </label>
+            <input
+              type="text"
+              id="cardHolder"
+              name="cardHolder"
+              placeholder="Enter the cardholder's name"
+              required
+              style={inputStyle}
+            />
+          </div>
+          <div style={formGroupStyle}>
+            <label htmlFor="expiryDate" style={labelStyle}>
+              Expiry Date <span style={{ color: "red" }}>*</span>
+            </label>
+            <input
+              type="number"
+              id="expiryDate"
+              name="expiryDate"
+              placeholder="MM/YY"
+              required
+              style={inputStyle}
+            />
+          </div>
+          <div style={formGroupStyle}>
+            <label htmlFor="cvc" style={labelStyle}>
+              CVV <span style={{ color: "red" }}>*</span>
+            </label>
+            <input
+              type="number"
+              id="cvc"
+              name="cvc"
+              placeholder="Enter the security code"
+              required
+              style={inputStyle}
+            />
+          </div>
+          <button type="submit" style={buttonStyle}>
+            Pay Now
+          </button>
+        </form>
+        </div>
+      }
+      {/* cash on delivery */}
+
+
+      {cod &&
+        <div style={formContainerStyle}>
+          <h2 style={headingStyle}>Cash on Delivery</h2>
+          <form >
+            <div style={formGroupStyle}>
+              <label htmlFor="phoneNumber" style={labelStyle}>
+                Phone Number <span style={{ color: "red" }}>*</span>
+              </label>
+              <input
+                type="tel"
+                id="phoneNumber"
+                placeholder="Enter your phone number"
+                required
+                style={inputStyle}
+              />
+            </div>
             <div style={formGroupStyle}>
               <label htmlFor="amount" style={labelStyle}>
-                Amount <span style={{ color: "red" }}>*</span>
+                Order Amount <span style={{ color: "red" }}>*</span>
               </label>
               <input
                 type="text"
                 id="amount"
-                name="amount"
-                value={value}
-                placeholder=" Enter Amount"
-                required
-                style={inputStyle}
-                readOnly
-              />
-            </div>
-            <div style={formGroupStyle}>
-              <label htmlFor="cardNumber" style={labelStyle}>
-                Card Number <span style={{ color: "red" }}>*</span>
-              </label>
-              <input
-                 type="number"
-                id="cardNumber"
-                name="cardNumber"
-                placeholder="Enter your card number"
+                placeholder="Enter the order amount"
                 required
                 style={inputStyle}
               />
             </div>
             <div style={formGroupStyle}>
-              <label htmlFor="cardHolder" style={labelStyle}>
-                Card Holder <span style={{ color: "red" }}>*</span>
-              </label>
-              <input
-                type="text"
-                id="cardHolder"
-                name="cardHolder"
-                placeholder="Enter the cardholder's name"
-                required
-                style={inputStyle}
-              />
-            </div>
-            <div style={formGroupStyle}>
-              <label htmlFor="expiryDate" style={labelStyle}>
-                Expiry Date <span style={{ color: "red" }}>*</span>
-              </label>
-              <input
-                type="number"
-                id="expiryDate"
-                name="expiryDate"
-                placeholder="MM/YY"
-                required
-                style={inputStyle}
-              />
-            </div>
-            <div style={formGroupStyle}>
-              <label htmlFor="cvc" style={labelStyle}>
-                CVV <span style={{ color: "red" }}>*</span>
-              </label>
-              <input
-                type="number"
-                id="cvc"
-                name="cvc"
-                placeholder="Enter the security code"
-                required
-                style={inputStyle}
-              />
+              <label style={labelStyle}>Delivery Charges</label>
+              <span style={{ fontSize: "14px", color: "#333" }}>
+                Free (For Cash on Delivery)
+              </span>
             </div>
             <button type="submit" style={buttonStyle}>
-              Pay Now
+              Place Order
             </button>
-          </form> 
-          </div> 
-}
-{/* cash on delivery */}
-
-
-{cod &&
-<div style={formContainerStyle}>
-      <h2 style={headingStyle}>Cash on Delivery</h2>
-      <form >
-        <div style={formGroupStyle}>
-          <label htmlFor="phoneNumber" style={labelStyle}>
-            Phone Number <span style={{ color: "red" }}>*</span>
-          </label>
-          <input
-            type="tel"
-            id="phoneNumber"
-            placeholder="Enter your phone number"
-            required
-            style={inputStyle}
-          />
+          </form>
         </div>
-        <div style={formGroupStyle}>
-          <label htmlFor="amount" style={labelStyle}>
-            Order Amount <span style={{ color: "red" }}>*</span>
-          </label>
-          <input
-            type="text"
-            id="amount"
-            placeholder="Enter the order amount"
-            required
-            style={inputStyle}
-          />
+      }
+
+      {/*  paytm payment option  */}
+
+      {payTm &&
+        <div style={formContainerStyle}>
+          <p style={{ textAlign: "center", fontSize: "19px" }}>Pay to finish placing your order</p>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <button style={{ fontWeight: "bold", fontSize: "20px", backgroundColor: "#68bde1", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px ", }}>Click here for redirect to PayTm</button>
+          </div>
         </div>
-        <div style={formGroupStyle}>
-          <label style={labelStyle}>Delivery Charges</label>
-          <span style={{ fontSize: "14px", color: "#333" }}>
-            Free (For Cash on Delivery)
-          </span>
+      }
+
+      {/* phone pay option  */}
+      {phonepay &&
+        <div style={formContainerStyle}>
+          <p style={{ textAlign: "center", fontSize: "20px" }}>Pay to finish placing your order</p>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <button style={{ fontWeight: "bold", fontSize: "20px", backgroundColor: "#68bde1", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px" }}>Click here for redirect to PhonePay</button>
+          </div>
+
         </div>
-        <button type="submit" style={buttonStyle}>
-          Place Order
-        </button>
-      </form>
-    </div>
-}
+      }
 
-{/*  paytm payment option  */}
+      {/* Google pay option  */}
+      {googlepay &&
+        <div style={formContainerStyle}>
+          <p style={{ textAlign: "center", fontSize: "19px" }}>Pay to finish placing your order</p>
+          <div style={{ display: "flex", justifyContent: "center" }}>
+            <button style={{ fontWeight: "bold", fontSize: "20px", backgroundColor: "#68bde1", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px" }}>Click here for redirect to GooglePay</button>
+          </div>
 
-<div style={formContainerStyle}>
-  <p style={{textAlign: "center", fontSize: "19px"}}>Pay to finish placing your order</p>
-  <h2 style={{fontWeight:'bold', fontSize:"32px", marginLeft: "25px"}}>₹ 2000</h2>
-  <div style={{display: "flex", flexDirection: "row"}}>
-    <img  style={{height: "35px", width: "80px"}} src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/paytm-icon.png" alt="Paytm Logo" />
-    <h6>Paytm Account</h6>
-    </div>
-    <button style={{fontWeight:"bold", fontSize}}>Pay ₹ 2000</button>
-   
- 
- 
-</div>
-
+        </div>
+      }
 
 
 
     </>
   );
-}; 
+};
 
 
 
@@ -336,8 +387,11 @@ const formContainerStyle = {
   padding: "20px",
   border: "1px solid #ddd",
   borderRadius: "8px",
-  backgroundColor: "#fff",
+  // backgroundColor: "#fff",
   boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+  background: "linear-gradient(to top, #dfe9f3 0%, white 100%)"
+
+
 };
 
 const formRowStyle = {
@@ -395,7 +449,7 @@ const paymentoption = {
   alignItem: "center",
   gap: "80px",
   justifyContent: "space-between",
-  height:"170px"
+  height: "170px"
 
 }
 
@@ -407,15 +461,15 @@ const payment_option_imagea = {
 const payment_option_imageb = {
   height: "50px",
   width: "50px",
-  borderRadius:"5px"
+  borderRadius: "5px"
 }
-const codbuttona ={
+const codbuttona = {
   fontWeight: "bold",
-  fontSize:"22px"
+  fontSize: "22px"
 }
 
-const codbuttonb ={
+const codbuttonb = {
   fontWeight: "bold",
-  fontSize:"22px",
-  textAlign:"center"
+  fontSize: "22px",
+  textAlign: "center"
 }

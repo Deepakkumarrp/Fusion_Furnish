@@ -52,6 +52,8 @@ export  const Paymentdetails = () => {
 
   const value = 5000
   return (
+
+
     <div style={formContainerStyle}>
       <h2>Payment Details</h2>
       <form >
