@@ -3,13 +3,16 @@ import { Paymentdetails } from "./Payment/Payment";
 import { AddressDetails } from "./Payment/Address";
 import Products from "./Products/Products";
 import ProductDetails from "./Products/ProductDetails";
+import HomePage from "./Home/HomePage";
+import About from "./About/About";
 
 
 export default function AllRoutes(){
     return(<>
     <Routes>
         {/* Rohit add home page below */}
-        <Route path="/"  />
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<About />} />
         {/* Raushan add Login and Sign below */}
 
 
