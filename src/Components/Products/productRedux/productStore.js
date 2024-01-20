@@ -1,5 +1,7 @@
 import { applyMiddleware, legacy_createStore } from "redux";
-import { reducer } from "./productReducer";
+import { productReducer } from "./productReducer";
 import { thunk } from "redux-thunk";
+import logger from "redux-logger";
 
-export const  store = legacy_createStore(reducer,applyMiddleware(thunk));
+
+export const  store = legacy_createStore(productReducer,applyMiddleware(thunk,logger));
