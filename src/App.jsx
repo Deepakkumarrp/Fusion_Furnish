@@ -1,15 +1,24 @@
-  import { useState } from 'react'
-  import reactLogo from './assets/react.svg'
-  import viteLogo from '/vite.svg'
-  import './App.css'
-  import About from "./Components/About/About"
+import { useState } from 'react'
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
 
-  function App() {
-    return (
-      <div className="font-Poppins">
-      <About />
-    </div>
-    )
-  }
+import { AddressDetails } from './Components/Payment/Address'
+// import './App.css'
+import Products from './Components/Products/Products'
+import AllRoutes from './Components/AllRoutes'
+// import Navbar from './Components/Navbar/Navbar'
+import Footer from './Components/Footer/Footer'
 
-  export default App
+function App() {
+  return (
+    <>
+      {/* <Navbar /> */}
+      <AllRoutes />
+      <Footer />
+    </>
+  )
+}
+
+
+
+export default App
