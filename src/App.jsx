@@ -9,7 +9,7 @@ import Products from './Components/Products/Products'
 function App() {
   return (
     <>
-    <AddressDetails />
+    {/* <AddressDetails /> */}
       {/* <Paymentdetails/> */}
       <Products />
     </>

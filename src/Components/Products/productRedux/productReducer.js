@@ -8,7 +8,7 @@ const initialState = {
     cart: []
 }
 
-export const reducer = (state = initialState, action) => {
+export const productReducer = (state = initialState, action) => {
     let exist;
     switch (action.type) {
         case GET_SOFAS_REQUEST:

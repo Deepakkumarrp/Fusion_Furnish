@@ -17,17 +17,20 @@ export default function Products() {
     const { sofas, isLoading } = useSelector(state => state);
     console.log(sofas);
 
-    return <div>
+    return (
+    // <div className={styles.container}>
         <div className={styles.singleCard}>
             {sofas.map(item => <ProductCard item={item} />)}
         </div>
-    </div>
+    // </div>
+    )
 }
 
 const ProductCard = ({ item }) => {
     const dispatch = useDispatch();
     const toast = useToast();
     const select = useSelector(state => state);
+    const navigate = useNavigate();
     function handleClick() {
         addToCart(item, dispatch);
         console.log(select);
@@ -52,33 +55,55 @@ const ProductCard = ({ item }) => {
 
 
     return (
-        <Card maxW='sm' overflow='hidden' boxShadow='lg' mx='auto' mt={8}>
-            <CardBody>
-                <Image
-                    src={item.image}
-                    alt=""
-                />
-                <Stack mt='6' spacing='3'>
-                    <Heading fontSize='xl' fontWeight='semibold'>{item.name}{item.title}</Heading>
-                    <Text color='orange.600' fontSize='xl' fontWeight='semibold'>
-                        Rs. {item.price}
-                    </Text>
-                </Stack>
-            </CardBody>
-            <Divider />
-            <CardFooter>
-                <ButtonGroup spacing='2'>
-                    <Button colorScheme='customColor' variant='solid' size='lg' bg='#766C75' color='gray.100' _hover={{
-          bg: "#605B5F"}}
-                        onClick={handleClick}>
-                        Add to cart
-                    </Button>
-                    <Button variant='ghost' colorScheme='customColor' size='lg' color='orange.600'>
-                        More details
-                    </Button>
-                </ButtonGroup>
-            </CardFooter>
-        </Card>
+        // <Card maxW='sm' overflow='hidden' boxShadow='lg' mx='auto' mt={8}>
+        //     <CardBody>
+        //         <Image
+        //             src={item.image}
+        //             alt=""
+        //         />
+        //         <Stack mt='6' spacing='3'>
+        //             <Heading fontSize='xl' fontWeight='semibold'>{item.name}{item.title}</Heading>
+        //             <Text color='orange.600' fontSize='xl' fontWeight='semibold'>
+        //                 Rs. {item.price}
+        //             </Text>
+        //         </Stack>
+        //     </CardBody>
+        //     <Divider />
+        //     <CardFooter>
+        //         <ButtonGroup spacing='2'>
+        //             <Button colorScheme='customColor' variant='solid' size='lg' bg='#766C75' color='gray.100' _hover={{
+        //   bg: "#605B5F"}}
+        //                 onClick={handleClick}>
+        //                 Add to cart
+        //             </Button>
+        //             <Button variant='ghost' colorScheme='customColor' size='lg' color='orange.600'>
+        //                 More details
+        //             </Button>
+        //         </ButtonGroup>
+        //     </CardFooter>
+        // </Card>
+        <div key={item.id}>
+            <img src={item.image} alt="" />
+
+            <div className={styles.nameDiv}>
+              <h4>{item.name}{item.title}</h4>
+              <p>RS {item.price}</p>
+            </div>
+            <div className={styles.priceDiv}>
+              {/* <p style={{ "marginTop": "0em" }}>  */}
+               {/* <Link to="/"> */}
+               {/* More details */}
+               {/* </Link> */}
+               {/* </p> */}
+              {/* <p> {item.price}</p> */}
+              <Button variant='ghost' colorScheme='customColor' size='lg' color='orange.600' 
+              >
+                     More details
+                     </Button>
+              <button onClick={handleClick}>Add to Cart
+              </button>
+            </div>
+          </div>
 
     )
 };
