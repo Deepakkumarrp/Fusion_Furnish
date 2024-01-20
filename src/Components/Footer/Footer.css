@@ -1,14 +1,14 @@
 /* Footer.css */
 
 .footer {
-    border: 2px solid palevioletred;
+    /* border: 2px solid palevioletred; */
     /* display: grid; */
     justify-content: space-between;
     align-items: left;
     /* background-color: rgb(249, 248, 241); */
     background-color: #F8F8F8;
     /* color: #fff; */
-    /* color: black; */
+    color: black;
     padding: 10px 20px;
 
 }
@@ -23,7 +23,7 @@
 }
 
 .footer_links{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     max-width: 1160px;
     margin: auto;
 
@@ -47,12 +47,12 @@ flex-direction: column;
 color: cadetblue;
 }
 
-a{
+.footer_links_div a{
     color: rgb(175 , 175 , 179);
     color: black;
     text-decoration: none;
 }
-a:hover{
+.footer_links_div a:hover{
     color: rgb(175 , 175 , 179);
     /* color: black; */
     cursor: pointer;
@@ -65,7 +65,7 @@ a:hover{
 
 }
 .footer_links_div img{
-    width: 60px;
+    width: 148px;
 }
 .footer_links_div p{
    font-size: 14px;

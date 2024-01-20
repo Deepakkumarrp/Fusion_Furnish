@@ -153,11 +153,6 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
-.add:hover{
-background-color: red;
-/* color:black; */
-}
-
 .singleCard > div > .priceDiv button {
   width: 180px;
   font-size: 15px;
@@ -176,7 +171,6 @@ background-color: red;
 .singleCard > div > .priceDiv button:hover {
   cursor: pointer;
   background-color:#4f484e;
-  /* color: black; */
 }
 
 .container > .nextBtn span {
