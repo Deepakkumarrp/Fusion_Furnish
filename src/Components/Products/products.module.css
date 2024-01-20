@@ -62,12 +62,6 @@
     margin-left: -23rem;
     margin-top: -4rem;
   }
- 
-
-  /* .container{
-        
-       
-    } */
 }
 
 @media only screen and (max-width: 840px) and (min-width: 600px) {
@@ -120,7 +114,6 @@
 /* signle card whole div */
 
 .singleCard > div {
-  /* border: 1px solid red; */
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
@@ -133,14 +126,11 @@
   justify-content: space-between;
   padding: 20px;
   margin-top:10px;
-  /* border: 1px solid #000; */
 }
 .nameDiv > span {
-  /* border: 1px solid #000; */
   display: flex;
   align-content: center;
   justify-content: space-around;
-  /* width: 10px; */
 }
 
 .singleCard hr {
@@ -155,8 +145,6 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
-  /* border: 1px solid red; */
-  /* align-items: center; */
   margin-top: -25px;
 }
 .singleCard > div > .priceDiv p {
@@ -165,23 +153,30 @@
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
 
+.add:hover{
+background-color: red;
+/* color:black; */
+}
+
 .singleCard > div > .priceDiv button {
   width: 180px;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: bold;
+  font-family: sans-serif;
   height: 32px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   border: none;
   border-radius: 10px;
-  background-color: rgb(119, 119, 119);
+  background-color:#7D777C;
   color: white;
 }
 
 .singleCard > div > .priceDiv button:hover {
   cursor: pointer;
-  color: black;
+  background-color:#4f484e;
+  /* color: black; */
 }
 
 .container > .nextBtn span {
@@ -206,19 +201,13 @@
 
 /* filter part */
 
-.container > .filterPart > div {
+/* .container > .filterPart > div {
   display: flex;
   justify-content: center;
   width: 40%;
   margin-left: 45rem;
   align-items: center;
   gap: 20px;
-  /* margin-top: 160px; */
-  /* border: 1px solid black; */
-  /* box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px; */
-  /* padding: 10px;
-    border-radius: 10px; */
-  /* border: 1px solid black; */
 }
 .container > .filterPart > div > div {
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
@@ -229,7 +218,7 @@
 }
 .container > .filterPart > div .fromCountry {
   width: 180px;
-}
+} */
 @media only screen and (max-width: 1300px) and (min-width: 840px) {
   .container{
     padding: 25px;
@@ -239,7 +228,6 @@
   .container {
     width: 85vw;
     padding: 100px;
-    /* margin: 5rem -4rem 0px 4rem ; */
   }
 }
 @media (max-width: 600px) {

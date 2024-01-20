@@ -22,7 +22,8 @@ export const getsingleSofa = (id) => {
         dispatch({ type: GET_SINGLE_SOFA_REQUEST });
         try {
             const response = await axios.get(`${url}/${id}`);
-            dispatch({ type: GET_SINGLE_SOFA_SUCCESS });
+            console.log(response.data);
+            dispatch({ type: GET_SINGLE_SOFA_SUCCESS,payload:response.data });
         }
         catch (error) {
             console.error(error);

@@ -20,16 +20,11 @@ export const productReducer = (state = initialState, action) => {
         case GET_SINGLE_SOFA_REQUEST:
             return { ...state, isLoading: true };
         case GET_SINGLE_SOFA_SUCCESS:
-            return { ...state, isLoading: false, sofa: action.payload.data }
+            return { ...state, isLoading: false, sofa: action.payload}
         case GET_SINGLE_SOFA_FAILURE:
             return { ...state, isLoading: false, isError: true };
         case ADD_TO_CART:
-            exist = state.cart.find((item) => item.id == action.payload.id)
-            if (!exist) {
                 return { ...state, cart: [...state.cart, action.payload] };
-            } else {
-                return state;
-            }
         default:
             return state;
     }
