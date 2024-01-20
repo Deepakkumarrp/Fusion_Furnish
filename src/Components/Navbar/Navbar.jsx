@@ -11,6 +11,7 @@ import "./navbar.css"
 import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { getSofas } from '../Products/productRedux/productAction'
+import { useAuth0 } from "@auth0/auth0-react";
 
 
 // import { AddProductType } from '../ProductPage/ProductReducer/action'
@@ -25,6 +26,7 @@ const Navbar = () => {
     const [dropDownSearch, setDropDownSearch] = useState(false)
     const [isAuth, setisAuth] = useState(false);
     const [userName, setUsername] = useState('Deepak');
+    const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
 
     // const isAuth = useSelector((store) => store.AuthReducer.isAuth);
     // const userName = useSelector((store) => store.AuthReducer.name);
