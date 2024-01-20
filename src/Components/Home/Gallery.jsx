@@ -1,6 +1,6 @@
 import React from "react";
 
-function PhotoGallery() {
+function Gallery() {
   return (
     <div className="py-5">
       <div>
@@ -52,4 +52,4 @@ function PhotoGallery() {
   );
 }
 
-export default PhotoGallery;
+export default Gallery;
