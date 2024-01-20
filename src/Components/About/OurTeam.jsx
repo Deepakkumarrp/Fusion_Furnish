@@ -2,6 +2,7 @@ import React from "react";
 import Deepak from "../Images/Deepak.jpg";
 import Rohit from "../Images/Rohit.png";
 import Raushan from "../Images/Raushan.png";
+import Heena from "../Images/Heena.png";
 
 function OurTeam() {
   return (
@@ -39,8 +40,8 @@ function OurTeam() {
         <div>
           <div>
             <img
-              src= ""
-              className="hover:scale-105 transition-transform"
+              src= {Heena}
+              className="hover:scale-105 transition-transform image3"
             />
           </div>
           <div>
