@@ -10,8 +10,6 @@ export default function AllRoutes(){
         {/* Rohit add home page below */}
         <Route path="/"  />
         {/* Raushan add Login and Sign below */}
-        {/* <Route path="/login"/> */}
-        <Route path="/products" />
         {/* Poornima do edit below if required */}
         <Route path="/payment" element={<Paymentdetails />}/>
         <Route path="/address" element={<AddressDetails />} />
