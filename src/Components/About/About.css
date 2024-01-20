@@ -196,9 +196,10 @@
 }
 
 .hello{
-  margin-top: 35px;
+  margin-top: 25px;
   margin-left: 15px;
 }
+
 
 .checkbox-container {
   display: flex;
@@ -293,4 +294,8 @@
 
 .image4{
   width: 220px;
+}
+
+.image3{
+  width: 235px;
 }
