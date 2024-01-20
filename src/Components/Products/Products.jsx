@@ -7,12 +7,11 @@ import { useEffect } from "react";
 import { addToCart, getSofas } from "./productRedux/productAction";
 
 export default function Products() {
-
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getSofas());
     }, [])
-    const { sofas, isLoading } = useSelector(state => state);
+    const { sofas, isLoading } = useSelector(state => state.product);
     return (
         <div className={styles.singleCard}>
             {sofas.map(item => <ProductCard item={item} />)}
@@ -21,9 +20,10 @@ export default function Products() {
 }
 
 const ProductCard = ({ item }) => {
+    // const state = useSelector(state => state);
     const dispatch = useDispatch();
     const toast = useToast();
-    const select = useSelector(state => state);
+    const select = useSelector(state => state.product);
     const navigate = useNavigate();
     function handleClick() {
         addToCart(item, dispatch);
