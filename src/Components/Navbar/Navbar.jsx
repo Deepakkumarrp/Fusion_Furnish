@@ -122,7 +122,7 @@ const Navbar = () => {
                     <div className={style.navbar_bottom}>
                         <div>
                             <p onClick={()=>dispatch(getSofas("Sofas"))}><Link to={"/products"} className={style.link}>SOFAS</Link></p>
-                            <p onClick={()=>dispatch(getSofas("Beds"))} ><Link to={"/products"} className={style.link}>BED</Link></p>
+                            <p onClick={()=>dispatch(getSofas("Beds"))} ><Link to={"/products"} className={style.link}>BEDS</Link></p>
                             <p onClick={()=>dispatch(getSofas("ChildrenFurniture"))}><Link to={"/products"} className={style.link}>CHILDREN'S FURNITURE</Link></p>
                             <p onClick={()=>dispatch(getSofas("ArmChair"))} ><Link to={"/products"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
                         </div>
