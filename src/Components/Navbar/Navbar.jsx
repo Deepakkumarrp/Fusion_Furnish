@@ -9,6 +9,8 @@ import human from "./NavbarImages/human-icon.svg"
 import style from "./Navbar.module.css"
 import "./navbar.css"
 import { Link } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { getSofas } from '../Products/productRedux/productAction'
 import { useAuth0 } from "@auth0/auth0-react";
 
 
@@ -38,6 +40,7 @@ const Navbar = () => {
     // const dispatch = useDispatch()
     const [searchResults, setsearchResults] = useState("");
     const [close, setClose] = useState(false)
+    const dispatch = useDispatch();
     // const debounce = useRef();
     // const [searchedData, setSearchedData] = useState([])
     // const navigate = useNavigate();
@@ -118,10 +121,10 @@ const Navbar = () => {
                     </div>
                     <div className={style.navbar_bottom}>
                         <div>
-                            <p ><Link to={"/products"} className={style.link}>SOFAS</Link></p>
-                            <p ><Link to={"/products"} className={style.link}>BED</Link></p>
-                            <p ><Link to={"/products"} className={style.link}>CHILDREN'S FURNITURE</Link></p>
-                            <p ><Link to={"/products"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
+                            <p onClick={()=>dispatch(getSofas("Sofas"))}><Link to={"/products"} className={style.link}>SOFAS</Link></p>
+                            <p onClick={()=>dispatch(getSofas("Beds"))} ><Link to={"/products"} className={style.link}>BEDS</Link></p>
+                            <p onClick={()=>dispatch(getSofas("ChildrenFurniture"))}><Link to={"/products"} className={style.link}>CHILDREN'S FURNITURE</Link></p>
+                            <p onClick={()=>dispatch(getSofas("ArmChair"))} ><Link to={"/products"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
                         </div>
                         <div>
                             <div><b style={{ fontSize: "0.9rem" }}>+91 8802244680</b></div>
