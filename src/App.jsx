@@ -5,6 +5,9 @@ import viteLogo from '/vite.svg'
 import { AddressDetails } from './Components/Payment/Address'
 // import './App.css'
 import Products from './Components/Products/Products'
+import AllRoutes from './Components/AllRoutes'
+// import Navbar from './Components/Navbar/Navbar'
+import Footer from './Components/Footer/Footer'
 
 function App() {
   return (
@@ -12,6 +15,9 @@ function App() {
     {/* <AddressDetails /> */}
       {/* <Paymentdetails/> */}
       <Products />
+      {/* <Navbar /> */}
+      <AllRoutes />
+      {/* <Footer /> */}
     </>
   )
 }
