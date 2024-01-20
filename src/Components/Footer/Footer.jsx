@@ -1,13 +1,13 @@
 
-import './Footer.css'
-
+import './Footer.css' 
+import FusionFurnishLogo from "../Navbar/NavbarImages/FusionFurnishLogo.png";
 const Footer = () => {
   return (
     <footer className="footer">
 
       <div className='footer_links'>
         <div className='footer_links_div'>
-          <img src="https://woodfans.ru/logo-dark.svg" alt="Logo" />
+          <img src={FusionFurnishLogo} alt="Logo" />
 
         </div>
 

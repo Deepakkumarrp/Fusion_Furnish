@@ -5,14 +5,16 @@ import viteLogo from '/vite.svg'
 import { AddressDetails } from './Components/Payment/Address'
 // import './App.css'
 import Products from './Components/Products/Products'
+import { Routes } from 'react-router-dom'
 import AllRoutes from './Components/AllRoutes'
-// import Navbar from './Components/Navbar/Navbar'
+import Navbar from './Components/Navbar/Navbar'
 import Footer from './Components/Footer/Footer'
 
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
+      <Navbar />
+      <div style={{height:"120px"}}></div>
       <AllRoutes />
       <Footer />
     </>
