@@ -6,7 +6,10 @@ import styles from "../Products/productDetails.module.css";
 export default function ProductDetails() {
     const dispatch = useDispatch();
     const {id} = useParams();
-    const {sofa} = useSelector(state=>state);
+    // const state = useSelector(state => state.product);
+
+    // console.log(state);
+    const {sofa} = useSelector(state=>state.product);
     useEffect(() => {
         dispatch(getsingleSofa(id));
     }, [id])

@@ -69,6 +69,16 @@ const Navbar = () => {
     // }, [searchResults])
 
 
+// Written by raushan
+    // {isAuthenticated && <span id='span'>Hi {user.name}</span>}
+    //                     {isAuthenticated ?(
+    //                        <Nav.Link> <Button variant="primary" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+    //                         Log Out
+    //                     </Button></Nav.Link>
+    //                     ):(
+    //                         <Button variant="primary" onClick={() => loginWithRedirect()}>Log In</Button>
+    //                     )}
+
     return (
         <div id='navbar_container' >
             {/* ----------Navbar for Laptop Screen Starts Here ------------ */}
@@ -101,13 +111,23 @@ const Navbar = () => {
                                     </div>) : (<></>)
                                 } */}
                             </div>
+                            {/* By Raushan */}
+                            {/* <span><Button variant="primary" onClick={() => loginWithRedirect()}>Log In</Button></span> */}
+                            {/* {isAuthenticated && <span id='span'>Hi {user.name}</span>}
+                        {isAuthenticated ?(
+                           <Nav.Link> <Button variant="primary" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                            Log Out
+                        </Button></Nav.Link>
+                        ):(
+                            <Button variant="primary" onClick={() => loginWithRedirect()}>Log In</Button>
+                        )} */}
                             {
-                                !isAuth ? (<p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin); setDropDownSearch(false) }} />
+                                !isAuthenticated ? (<p><Link to={"/login"} onClick={() => loginWithRedirect()} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin); setDropDownSearch(false) }} />
                                     {
                                         dropDownLogin ? (<div className={style.logindropdown}>
-                                            <div onClick={() => { navigate("/"); setDropDownLogin(false) }}>{userName}</div>
+                                            <div onClick={() => { navigate("/"); setDropDownLogin(false) }}>{user.name}</div>
                                             <div onClick={() => { navigate("/cart"); setDropDownLogin(false) }}>My Cart</div>
-                                            <div onClick={() => { dispatch(userLogout()); setDropDownLogin(false) }}>Logout</div>
+                                            <div onClick={() => { logout({ logoutParams: { returnTo: window.location.origin } });dispatch(userLogout()); setDropDownLogin(false) }}>Logout</div>
                                         </div>) : (<></>)
                                     }
                                 </div>)
