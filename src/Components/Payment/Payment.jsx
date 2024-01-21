@@ -1,4 +1,4 @@
-
+import styles from "../Payment/payment.module.css";
  
 import React, { useState } from "react";
 
@@ -94,7 +94,7 @@ export const PaymentDetails = () => {
   return (
     <>
       <div style={formContainerStyle}>
-        <h2 style={headingStyle}>Shipping Address</h2>
+        <h2 style={headingStyle} >Shipping Address</h2>
         <form onSubmit={handleShippingSubmit}>
           <div style={formRowStyle}>
             <div style={formGroupStyle}>
@@ -182,7 +182,7 @@ export const PaymentDetails = () => {
               />
             </div>
           </div>
-          <button type="submit" style={buttonStyle}>
+          <button className={styles.addressButton} type="submit" style={buttonStyle}>
             Submit
           </button>
         </form>
@@ -192,7 +192,7 @@ export const PaymentDetails = () => {
         <div style={formContainerStyle}>
           <h2 style={codbuttonb}>Payment Details</h2>
 
-          <div style={paymentoption}>
+          <div className="paymentoption" style={paymentoption}>
 
             <button style={codbuttona} onClick={codpaymentoption}>COD</button>
             <button onClick={paytmoption}><img style={payment_option_imagea} src="https://cdn-icons-png.flaticon.com/128/825/825454.png" alt="paytm" /></button>
@@ -275,14 +275,14 @@ export const PaymentDetails = () => {
             </label>
             <input
               type="number"
-              id="cvc"
-              name="cvc"
+              id="cvv"
+              name="cvv"
               placeholder="Enter the security code"
               required
               style={inputStyle}
             />
           </div>
-          <button type="submit" style={buttonStyle}>
+          <button className={styles.debitCreditbtn} type="submit" style={buttonStyle}>
             Pay Now
           </button>
         </form>
@@ -325,7 +325,7 @@ export const PaymentDetails = () => {
                 Free (For Cash on Delivery)
               </span>
             </div>
-            <button type="submit" style={buttonStyle}>
+            <button className="placeorderbtn" type="submit" style={buttonStyle}>
               Place Order
             </button>
           </form>
@@ -338,7 +338,7 @@ export const PaymentDetails = () => {
         <div style={formContainerStyle}>
           <p style={{ textAlign: "center", fontSize: "19px" }}>Pay to finish placing your order</p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <button style={{ fontWeight: "bold", fontSize: "20px", backgroundColor: "#68bde1", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px ", }}>Click here for redirect to PayTm</button>
+            <button className="ppaygpayptm" style={{ fontWeight: "bold", fontSize: "20px", backgroundColor: "#68bde1", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px ", }}>Click here for redirect to PayTm</button>
           </div>
         </div>
       }
@@ -348,7 +348,7 @@ export const PaymentDetails = () => {
         <div style={formContainerStyle}>
           <p style={{ textAlign: "center", fontSize: "20px" }}>Pay to finish placing your order</p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <button style={{ fontWeight: "bold", fontSize: "20px", backgroundColor: "#68bde1", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px" }}>Click here for redirect to PhonePay</button>
+            <button className="ppaygpayptm" style={{ fontWeight: "bold", fontSize: "20px", backgroundColor: "#68bde1", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px" }}>Click here for redirect to PhonePay</button>
           </div>
 
         </div>
@@ -359,7 +359,7 @@ export const PaymentDetails = () => {
         <div style={formContainerStyle}>
           <p style={{ textAlign: "center", fontSize: "19px" }}>Pay to finish placing your order</p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <button style={{ fontWeight: "bold", fontSize: "20px", backgroundColor: "#68bde1", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px" }}>Click here for redirect to GooglePay</button>
+            <button className="ppaygpayptm" style={{ fontWeight: "bold", fontSize: "20px", backgroundColor: "#68bde1", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px" }}>Click here for redirect to GooglePay</button>
           </div>
 
         </div>
@@ -372,17 +372,6 @@ export const PaymentDetails = () => {
 };
 
 
-
-
-
-
-
-
-
-
-
-
-
 const formContainerStyle = {
   maxWidth: "800px",
   margin: "20px auto",
@@ -392,7 +381,6 @@ const formContainerStyle = {
   // backgroundColor: "#fff",
   boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
   background: "linear-gradient(to top, #dfe9f3 0%, white 100%)"
-
 
 };
 
