@@ -11,6 +11,8 @@ import CF3 from "../Images/CF3.jpg";
 import AR1 from "../Images/AR1.jpg";
 import AR2 from "../Images/AR2.png";
 import AR3 from "../Images/AR3.webp";
+import { Link } from "react-router-dom";
+
 
 const BuyersChoice = () => {
   const [selectedCategory, setSelectedCategory] = useState("sofas");
@@ -45,9 +47,9 @@ const BuyersChoice = () => {
   return (
     <div className="py-10">
       <div>
-        <h3 className="text-dark text-3xl md:text-4xl py-10">Buyers' Choice</h3>
+        <h3 className="text-dark text-3xl md:text-4xl py-10  BY">Buyers' Choice</h3>
       </div>
-      <div className="flex justify-around">
+      <div className="Bttons_top_bar">
         {["sofas", "beds", "childrenFurniture", "armchairsAndPoufs"].map((category) => (
           <button 
             key={category}
@@ -70,11 +72,13 @@ const BuyersChoice = () => {
                 className="hover:scale-105 transition-transform imtt"
               />
             </div>
-            <div >
+            <div className="data">
               <h4 className="text-2xl py-3 md:py-2 font-medium">{item.name}</h4>
               <p className="text-xs font-base text-gray-400">{`Price: ${item.price}`}</p>
               <button className="butt1">Details</button>
-              <button className="butt2">Buy Now</button>
+              <Link to={`/product-details/${item.name}`}>
+  <button className="butt2">Buy Now</button>
+</Link>
             </div>
           </div>
         ))}

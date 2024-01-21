@@ -1,6 +1,6 @@
 #navbar_container {
   position: fixed;
-  width: 100%;
+  width: 100vw;
   background-color: white;
   z-index: 1000;
 }

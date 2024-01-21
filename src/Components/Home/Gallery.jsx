@@ -4,7 +4,7 @@ function Gallery() {
   return (
     <div className="py-5">
       <div>
-        <h3 className="text-dark text-4xl py-10">Photo gallery of our works</h3>
+        <h3 className="text-dark text-4xl py-10 lll">Photo gallery of our works</h3>
       </div>
       <div className="grid  sm:grid-cols-2 md:grid-cols-4 gap-4">
         <div className="flex flex-col gap-5">
