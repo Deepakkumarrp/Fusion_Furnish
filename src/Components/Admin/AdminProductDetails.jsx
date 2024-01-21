@@ -106,7 +106,7 @@ export default function AdminProductDetails() {
     category: "",
   });
 
-  const { sofa } = useSelector((state) => state.product);
+  const { sofa } = useSelector((state) => state);
 
   useEffect(() => {
     dispatch(getsingleSofa(id));

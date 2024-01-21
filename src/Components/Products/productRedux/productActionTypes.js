@@ -15,3 +15,12 @@ export const clean_Cart = "clean_Cart";
 export const DELETE_REQUEST = "DELETE_REQUEST";
 export const UPDATE_REQUEST = "UPDATE_REQUEST";
 export const POST_REQUEST = "POST_REQUEST";
+
+export const LOGGED_IN = "LOGGED_IN";
+export const LOGGED_OUT = "LOGGED_OUT";
+export const ADMIN_LOGGED_IN = "ADMIN_LOGGED_IN";
+export const ADMIN_LOGGED_OUT = "ADMIN_LOGGED_OUT";
+
+export const LIGHT_MODE = "LIGHT_MODE";
+export const DARK_MODE = "DARK_MODE";
+

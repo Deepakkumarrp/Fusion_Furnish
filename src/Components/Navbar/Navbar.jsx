@@ -12,6 +12,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { getSofas } from '../Products/productRedux/productAction'
 import { useAuth0 } from "@auth0/auth0-react";
+import { ADMIN_LOGGED_IN, ADMIN_LOGGED_OUT, LOGGED_IN, LOGGED_OUT } from '../Products/productRedux/productActionTypes'
 
 
 
@@ -28,10 +29,28 @@ const Navbar = () => {
     const [isAuth, setisAuth] = useState(false);
     const [userName, setUsername] = useState('Deepak');
     const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
+    const dispatch = useDispatch();
+    console.log(user);
     const popup = useSelector((state)=>state.cart);
 
     // change here to see Admin Panel
-    const [isAdmin , setisAdmin] = useState(false);
+    // const [isAdmin , setisAdmin] = useState(false);
+
+    const {isAdmin,isLogin,isLightMode} = useSelector(state => state)
+    useEffect(() => {
+        if(user?.sub == 'auth0|65ad155693eea987226f2bae' || user?.email_verified === true){
+            // setisAdmin(true);
+            dispatch({type: ADMIN_LOGGED_IN})
+        }else{
+            // setisAdmin(false);
+            dispatch({type: ADMIN_LOGGED_OUT})
+        }
+    },[user])
+
+    useEffect(() => {
+        isAuthenticated ? dispatch({type:LOGGED_IN}) : dispatch({type:LOGGED_OUT})
+    },[isAuthenticated])
+   
 
     // const isAuth = useSelector((store) => store.AuthReducer.isAuth);
     // const userName = useSelector((store) => store.AuthReducer.name);
@@ -45,7 +64,8 @@ const Navbar = () => {
     // const dispatch = useDispatch()
     const [searchResults, setsearchResults] = useState("");
     const [close, setClose] = useState(false)
-    const dispatch = useDispatch();
+    const store = useSelector(store => store)
+    
     // const debounce = useRef();
     // const [searchedData, setSearchedData] = useState([])
     // const navigate = useNavigate();
@@ -84,8 +104,10 @@ const Navbar = () => {
     //                         <Button variant="primary" onClick={() => loginWithRedirect()}>Log In</Button>
     //                     )}
 
+    console.log(store);
     return (
         <div id='navbar_container' >
+            {/* <pre><code>{JSON.stringify(store,null,2)}</code></pre> */}
             {/* ----------Navbar for Laptop Screen Starts Here ------------ */}
             <div className={style.navbar_bigscreen}>
 
