@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import "./PriceDetail.css";
 import { Link } from "react-router-dom";
-
 const PriceDetail = ({ title, onclick, valid = false }) => {
   const data = useSelector((store) => store.cart)
   let details = data.reduce((acc, e) => {
@@ -42,8 +41,7 @@ const PriceDetail = ({ title, onclick, valid = false }) => {
       <div className="checkOutContainer">
         <button className={valid ? "checkOutBtnNotValid" : "checkOutBtn"} onClick={() => { onclick() }} disabled={valid} >
           {/* <Link className="checkoutLink" >{title}</Link> */}
-
-         {valid ? "Fill Your Address" : title} 
+          {valid ? "Fill Your Address" : title}
         </button>
       </div>
     </div>
