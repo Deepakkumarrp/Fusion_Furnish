@@ -40,7 +40,7 @@ export const productReducer = (state = initialState, action) => {
             case ADD_TO_CART: {
                 let check = false;
                 let map = state.cart.map((ele) => {
-                    if (ele.title == action.payload.title) {
+                    if (ele.id == action.payload.id) {
                         check = true;
                         return { ...ele, qty: ele.qty + 1 };
                     } else {
