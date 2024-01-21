@@ -5,6 +5,9 @@ import Products from "./Products/Products";
 import ProductDetails from "./Products/ProductDetails";
 import HomePage from "./Home/HomePage";
 import About from "./About/About";
+import AdminProducts from "./Admin/AdminProducts";
+import AdminProductDetails from "./Admin/AdminProductDetails";
+import AddNewProduct from "./Admin/AddNewProduct";
 
 
 export default function AllRoutes(){
@@ -23,6 +26,11 @@ export default function AllRoutes(){
         {/* Heena do edit if required below */}
         <Route path="/products" element={<Products />} />
         <Route path="/product/:id" element={<ProductDetails />} />
+
+        {/* Admin routes */}
+        <Route path="/admin/products" element={<AdminProducts />} />
+        <Route path="/admin/product/:id" element={<AdminProductDetails />} />
+        <Route path="/admin/addProduct" element={<AddNewProduct />} />
     </Routes>
     </>);
 }

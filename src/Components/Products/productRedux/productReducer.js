@@ -1,4 +1,4 @@
-import { ADD_TO_CART, GET_SINGLE_SOFA_FAILURE, GET_SINGLE_SOFA_REQUEST, GET_SINGLE_SOFA_SUCCESS, GET_SOFAS_FAILURE, GET_SOFAS_REQUEST, GET_SOFAS_SUCCESS } from "./productActionTypes";
+import { ADD_TO_CART, DELETE_REQUEST, GET_SINGLE_SOFA_FAILURE, GET_SINGLE_SOFA_REQUEST, GET_SINGLE_SOFA_SUCCESS, GET_SOFAS_FAILURE, GET_SOFAS_REQUEST, GET_SOFAS_SUCCESS, POST_REQUEST } from "./productActionTypes";
 
 const initialState = {
     isLoading: false,
@@ -25,6 +25,18 @@ export const productReducer = (state = initialState, action) => {
             return { ...state, isLoading: false, isError: true };
         case ADD_TO_CART:
                 return { ...state, cart: [...state.cart, action.payload] };
+        case DELETE_REQUEST:
+                return {
+                    ...state,
+                    isLoading: false,
+                    sofas: state.sofas.filter((el) => el.id !== action.payload)
+                }
+        case POST_REQUEST:
+            return{
+                ...state,
+                isLoading: false,
+                sofas: [action.payload, ...state.sofas]
+            }
         default:
             return state;
     }

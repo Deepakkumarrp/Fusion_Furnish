@@ -28,6 +28,9 @@ const Navbar = () => {
     const [userName, setUsername] = useState('Deepak');
     const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
 
+    // change here to see Admin Panel
+    const [isAdmin , setisAdmin] = useState(false);
+
     // const isAuth = useSelector((store) => store.AuthReducer.isAuth);
     // const userName = useSelector((store) => store.AuthReducer.name);
     // const [insideOpen, setInsideOpen] = useState(false);
@@ -92,8 +95,8 @@ const Navbar = () => {
                             <p><Link to={"/address"} className={style.link}>Delivery</Link></p>
                             <p><Link to={"/payment"} className={style.link}>Payment</Link></p>
                             <p><Link to={"#"} className={style.link}>Blog</Link></p>
-                            <p><Link to={"#"} className={style.link}>Portfolio</Link></p>
                             <p><Link to={"/about"} className={style.link}>About us</Link></p>
+                            <p><Link to={"/admin/products"} className={style.link}>Admin</Link></p>
                         </div>
                         <div>
                             <div className={style.search_icon}>
@@ -141,10 +144,10 @@ const Navbar = () => {
                     </div>
                     <div className={style.navbar_bottom}>
                         <div>
-                            <p onClick={()=>dispatch(getSofas("Sofas"))}><Link to={"/products"} className={style.link}>SOFAS</Link></p>
-                            <p onClick={()=>dispatch(getSofas("Beds"))} ><Link to={"/products"} className={style.link}>BEDS</Link></p>
-                            <p onClick={()=>dispatch(getSofas("ChildrenFurniture"))}><Link to={"/products"} className={style.link}>CHILDREN'S FURNITURE</Link></p>
-                            <p onClick={()=>dispatch(getSofas("ArmChair"))} ><Link to={"/products"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
+                            <p onClick={()=>dispatch(getSofas("Sofas"))}><Link to={isAdmin?"/admin/products":"/products"} className={style.link}>SOFAS</Link></p>
+                            <p onClick={()=>dispatch(getSofas("Beds"))} ><Link to={isAdmin?"/admin/products":"/products"} className={style.link}>BEDS</Link></p>
+                            <p onClick={()=>dispatch(getSofas("ChildrenFurniture"))}><Link to={isAdmin?"/admin/products":"/products"} className={style.link}>CHILDREN'S FURNITURE</Link></p>
+                            <p onClick={()=>dispatch(getSofas("ArmChair"))} ><Link to={isAdmin?"/admin/products":"/products"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
                         </div>
                         <div>
                             <div><b style={{ fontSize: "0.9rem" }}>+91 8802244680</b></div>

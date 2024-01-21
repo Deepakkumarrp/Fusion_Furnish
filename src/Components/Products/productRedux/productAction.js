@@ -1,5 +1,5 @@
 import axios from "axios";
-import { ADD_TO_CART, GET_SINGLE_SOFA_FAILURE, GET_SINGLE_SOFA_REQUEST, GET_SINGLE_SOFA_SUCCESS, GET_SOFAS_FAILURE, GET_SOFAS_REQUEST, GET_SOFAS_SUCCESS } from "./productActionTypes";
+import { ADD_TO_CART, DELETE_REQUEST, GET_SINGLE_SOFA_FAILURE, GET_SINGLE_SOFA_REQUEST, GET_SINGLE_SOFA_SUCCESS, GET_SOFAS_FAILURE, GET_SOFAS_REQUEST, GET_SOFAS_SUCCESS } from "./productActionTypes";
 import { useDispatch } from "react-redux";
 
 const url = "https://mock-api-latest.onrender.com/Furniture";
@@ -34,4 +34,52 @@ export const getsingleSofa = (id) => {
 
 export const addToCart = (item, dispatch) => {
     dispatch({ type: ADD_TO_CART, payload: item });
+}
+
+// Admin
+export const updateSofa = (id,formData) => {
+    return async (dispatch) => {
+        dispatch({ type: GET_SINGLE_SOFA_REQUEST });
+        try {
+            const response = await axios.patch(`${url}/${id}`,formData);
+            console.log(response.data);
+            dispatch({ type: GET_SINGLE_SOFA_SUCCESS,payload:response.data });
+        }
+        catch (error) {
+            console.error(error);
+            dispatch({ type: GET_SINGLE_SOFA_FAILURE });
+        }
+    }
+}
+
+export const addNewSofa = (formData) => {
+    return async (dispatch) => {
+        dispatch({ type: GET_SINGLE_SOFA_REQUEST });
+        try {
+            const response = await axios.post(`${url}`,formData);
+            console.log(response.data);
+            dispatch({ type: POST_REQUEST,payload:response.data });
+            // dispatch({ type: GET_SINGLE_SOFA_SUCCESS,payload:response.data });
+        }
+        catch (error) {
+            console.error(error);
+            dispatch({ type: GET_SINGLE_SOFA_FAILURE });
+        }
+    }
+}
+
+export const deleteSofa = (id) => {
+    return async (dispatch) => {
+        // dispatch({ type: GET_SINGLE_SOFA_REQUEST });
+        try {
+            const response = await axios.delete(`${url}/${id}`);
+            console.log(response.data);
+            dispatch({ type: GET_SINGLE_SOFA_SUCCESS,payload:response.data });
+            dispatch({ type: DELETE_REQUEST,payload:response.data.id });
+        }
+        catch (error) {
+        //     console.error(error);
+        //     dispatch({ type: GET_SINGLE_SOFA_FAILURE });
+        }
+    }
 }
