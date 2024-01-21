@@ -9,9 +9,10 @@ import human from "./NavbarImages/human-icon.svg"
 import style from "./Navbar.module.css"
 import "./navbar.css"
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { getSofas } from '../Products/productRedux/productAction'
 import { useAuth0 } from "@auth0/auth0-react";
+
 
 
 // import { AddProductType } from '../ProductPage/ProductReducer/action'
@@ -27,6 +28,7 @@ const Navbar = () => {
     const [isAuth, setisAuth] = useState(false);
     const [userName, setUsername] = useState('Deepak');
     const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
+    const popup = useSelector((state)=>state.cart);
 
     // change here to see Admin Panel
     const [isAdmin , setisAdmin] = useState(false);
@@ -137,7 +139,7 @@ const Navbar = () => {
                             }
 
                             <Link to="/cart"><img src={cart} className={style.navbar_cart} />
-                                <p className={style.countBigScreen}></p>
+                                <p className={style.countBigScreen}>{popup.length}</p>
 
                             </Link>
                         </div>
@@ -190,7 +192,7 @@ const Navbar = () => {
                     }
                     <div>
                         <img src={cart} className={style.navbar_cart} onClick={() => { navigate("/cart") }} />
-                        <p className={style.countBigScreen}></p>
+                        <p className={style.countBigScreen}>{popup.length}</p>
                     </div>
                     <img src={clickedHumburger ? cross : burger} className={style.navbar_humburger} onClick={() => { setClickedHumburger(!clickedHumburger) }} />
                 </div>
