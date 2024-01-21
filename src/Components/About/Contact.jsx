@@ -23,11 +23,12 @@ function Contact() {
       </div>
       <div className="md">
         <div className="flex flex-col gap-4">
-          <p className="font-medium text-base md:text-lg text-gray-600 py-">
+          <div className="hhhhh"><p className="font-medium text-base md:text-lg text-gray-600 py-">
             Our team of experienced designers and craftsmen will be happy to
             create for you unique furniture that reflects your style and
             preferences.
-          </p>
+          </p></div>
+          
           <div className="flex gap-5 text-xs">
             <input
               type="text"

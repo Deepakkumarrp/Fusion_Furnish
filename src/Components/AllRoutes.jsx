@@ -9,6 +9,7 @@ import AdminProducts from "./Admin/AdminProducts";
 import AdminProductDetails from "./Admin/AdminProductDetails";
 import AddNewProduct from "./Admin/AddNewProduct";
 import Cart from "./CartPage/Cart";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 
 export default function AllRoutes(){
@@ -29,9 +30,11 @@ export default function AllRoutes(){
         <Route path="/product/:id" element={<ProductDetails />} />
 
         {/* Admin routes */}
+        <Route element={<PrivateRoute />}>
         <Route path="/admin/products" element={<AdminProducts />} />
         <Route path="/admin/product/:id" element={<AdminProductDetails />} />
         <Route path="/admin/addProduct" element={<AddNewProduct />} />
+        </Route>
     </Routes>
     </>);
 }

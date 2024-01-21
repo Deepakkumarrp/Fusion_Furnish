@@ -146,7 +146,7 @@
   width: 735px;
 }
 .md {
-  margin-left: 350px;
+  margin-left: 250px;
 }
 
 .flex-col {
@@ -349,4 +349,17 @@
 
 .oooo{
   margin-left: 280px;
+}
+
+/* .bbbb{
+  margin-left: -250px;
+} */
+
+.hhhhh{
+  width: 750px;
+  margin-top: 50px
+}
+
+.www{
+  margin-top: 60px;
 }

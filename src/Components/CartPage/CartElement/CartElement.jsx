@@ -48,11 +48,11 @@ function CartElement({ id, name, seller, image, price, discount, quantity }) {
           </button>
         </div>
         <div id="removeBtn">
-          <button
+          {/* <button
           onClick={() => {
             dispatch(cleanCart(id));
           }}
-          >SAVE FOR LATER</button>
+          >SAVE FOR LATER</button> */}
           <button
             onClick={() => {
               dispatch(removeFromCart(id));
