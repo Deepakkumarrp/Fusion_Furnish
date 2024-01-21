@@ -5,14 +5,14 @@
     return (
       <div>
         <div className="py-10 flex justify-between ">
-          <h3 className="text-dark text-3xl md:text-4xl">
+          <h3 className="text-dark text-3xl md:text-4xl dddd">
             Factory order portfolio
           </h3>
-          <p className="underline text-sm font-normal hover:cursor-pointer">
-            SEE ALL
+          <p className="underline text-sm font-normal hover:cursor-pointer ppppp">
+            SEE ALL 
           </p>
         </div>
-        <div className="flex flex-col md:flex-row gap-8">
+        <div className="flex flex-col md:flex-row gap-8 gppp">
           <div className="hover:cursor-pointer overflow-hidden">
             <img
               src="https://wood-fans-team.vercel.app/assets/CurvedPouf-e678e103.jpg"

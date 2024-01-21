@@ -2,7 +2,7 @@ import React from "react";
 
 function Reviews() {
   return (
-    <div>
+    <div className="fff">
       <div className="py-5">
         <h3 className="text-dark text-3xl md:text-4xl py-4 text-center">
           Reviews from our clients
@@ -19,7 +19,7 @@ function Reviews() {
             </div>
             <div className="px-1">
               <div className="flex justify-between text-sm text-gray-500 py-2 mt-2">
-                <p>Natella Mankaeva</p>
+                <p className="ggg">Natella Mankaeva</p>
                 <p>04/20/2023</p>
               </div>
               <div className="container overflow-hidden">
@@ -44,7 +44,7 @@ function Reviews() {
             </div>
             <div className="px-1">
               <div className="flex justify-between text-sm text-gray-500 py-2 mt-2">
-                <p>Natella Mankaeva</p>
+                <p className="ggg">Natella Mankaeva</p>
                 <p>04/20/2023</p>
               </div>
               <div className="container overflow-hidden">
@@ -66,7 +66,7 @@ function Reviews() {
             </div>
             <div className="px-1">
               <div className="flex justify-between text-sm text-gray-500 py-2 mt-2">
-                <p>Natella Mankaeva</p>
+                <p className="ggg">Natella Mankaeva</p>
                 <p>04/20/2023</p>
               </div>
               <div className="container overflow-hidden">
@@ -88,7 +88,7 @@ function Reviews() {
             </div>
             <div className="px-1">
               <div className="flex justify-between text-sm text-gray-500 py-2 mt-2">
-                <p>Natella Mankaeva</p>
+                <p className="ggg">Natella Mankaeva</p>
                 <p>04/20/2023</p>
               </div>
               <div className="container overflow-hidden">
@@ -109,7 +109,7 @@ function Reviews() {
             </div>
             <div className="px-1">
               <div className="flex justify-between text-sm text-gray-500 py-2 mt-2">
-                <p>Natella Mankaeva</p>
+                <p className="ggg">Natella Mankaeva</p>
                 <p>04/20/2023</p>
               </div>
               <div className="container overflow-hidden">

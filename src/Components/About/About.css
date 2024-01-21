@@ -17,6 +17,12 @@
     text-align: center;
   }
   
+  .kkk{
+    margin-left: 650px;
+    font-weight: bold;
+    font-size: 40px;
+    margin-bottom: 50px;
+  }
   /* Review Card */
   
   .md:w-full {
@@ -61,9 +67,32 @@
     
   
   .mt-2 {
-    margin-top: 0.5rem; /* 8px */
+    margin-top: 30px; /* 8px */
+  }
+
+  .ggg{
+    margin-right: 10px;
+  }
+
+  .ddd{
+    width: 80%;
+    text-align: center;
+  }
+
+  .mmm{
+    margin-left: 600px;
+    font-weight: bold;
   }
   
+  .ooo{
+    margin-left: 150px;
+  }
+  .sss{
+    margin-left: 10%;
+  }
+  .fff{
+    margin-left: 25px;
+  }
   .container {
     width: 100%;
   }
@@ -89,6 +118,8 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     -webkit-line-clamp: 4;
+    width: 250px;
+    margin-top: 20px;
   }
   
   /* Hover effect on border images */
@@ -294,8 +325,28 @@
 
 .image4{
   width: 220px;
+  margin-left: 250px;
+}
+
+.iii{
+  margin-left: 285px;
+}
+
+.deepak{
+ margin-left: 60px;
+ margin-top: 10px;
 }
 
 .image3{
   width: 235px;
+}
+
+.image5{
+  width: 185px;
+  height: 215px;  
+  margin-left: 250px;
+}
+
+.oooo{
+  margin-left: 280px;
 }

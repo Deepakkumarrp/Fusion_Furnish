@@ -1,9 +1,11 @@
 import React from "react";
+import Hommee from "../Images/Hommee.jpg"
 
 function HomeTop() {
   return (  
     <div className="relative">
-      <img src="https://wood-fans-team.vercel.app/assets/image1-79185355.webp" className="w-full" />
+      <div className="w-full-top-img  "><img className="w-full-top-img" src={Hommee} alt="Fusion Furnish"/></div>
+      
       <div className="w-fulll">
         <p className="w-fulll-1">
           FUSION FURNISH
