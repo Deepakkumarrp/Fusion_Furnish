@@ -30,6 +30,25 @@ body {
   .bg-gray-700 {
     background-color: #4a5568;
   }
+
+  .animated-text {
+    transform: translateY(20px);
+    font-weight: bold;
+    color: #391f04;
+    transition: opacity 0.8s ease-in-out, transform 0.8s ease-in-out;
+  }
+  
+  .animated-text:hover { 
+    transform: translateY(0);
+  }
+
+  .w-full-top-img {
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .w-full-top-img:hover {
+    transform: scale(1.05);
+  }
   
   /* Gallery Component */
   .py-5 {
@@ -306,6 +325,7 @@ body {
 .butt1{
   margin-right: 50px;
   border-radius: 10px;
+  margin-left: 50px;
 }
 
 .butt2{
@@ -359,8 +379,7 @@ body {
 
 .www{
   width: 250px;
-  margin-top: 100px;
-}
+} 
 
 .vvv{
   width: 350px;

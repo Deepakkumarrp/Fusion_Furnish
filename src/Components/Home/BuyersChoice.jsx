@@ -19,21 +19,21 @@ const BuyersChoice = () => {
 
   const data = {
     sofas: [
-      { name: "DAVE SOFA", price: "₹18999", image: Sofa1 },
-      { name: "SOFA CITY", price: "₹20999", image: Sofa2 },
-      { name: "SOFA LOOP", price: "₹22999", image: Sofa3 },
+      { id: 1, name: "DAVE SOFA", price: "₹18999", image: Sofa1 },
+      { id: 2, name: "SOFA CITY", price: "₹20999", image: Sofa2 },
+      { id: 3, name: "SOFA LOOP", price: "₹22999", image: Sofa3 },
     ],
     beds: [
       { name: "BED SIMPLE", price: "₹15999", image: Bed1 },
       { name: "BED JULE", price: "₹17999", image: Bed2 },
       { name: "BED MELANIA", price: "₹20999", image: Bed3 },
     ],
-    childrenFurniture: [
+    children_Furniture: [
       { name: "CHILDREN'S BED SOFTY", price: "₹11999", image: CF1 },
       { name: "CHILDREN'S BED CLOUD", price: "₹14999", image: CF2 },
       { name: "CHILDREN'S BED SEA", price: "₹16999", image: CF3 },
     ],
-    armchairsAndPoufs: [
+    armchairs_And_Poufs: [
       { name: "BANQUETTE MADE OF SOLID", price: "₹8999", image: AR1 },
       { name: "ARMCHAIR TWIGGY", price: "₹9999", image: AR2 },
       { name: "BENCH SFERA", price: "₹11999", image: AR3 },
@@ -50,7 +50,7 @@ const BuyersChoice = () => {
         <h3 className="text-dark text-3xl md:text-4xl py-10  BY">Buyers' Choice</h3>
       </div>
       <div className="Bttons_top_bar">
-        {["sofas", "beds", "children's Furniture", "armchairs And Poufs"].map((category) => (
+        {["sofas", "beds", "children_Furniture", "armchairs_And_Poufs"].map((category) => (
           <button 
             key={category}
             className={`px-4 py-2 hhh ${
@@ -76,7 +76,7 @@ const BuyersChoice = () => {
               <h4 className="text-2xl py-3 md:py-2 font-medium">{item.name}</h4>
               <p className="text-xs font-base text-gray-400">{`Price: ${item.price}`}</p>
               <button className="butt1">Details</button>
-              <Link to={`/product/5/${item.name}`}>
+              <Link to={`/product/${item.id}`}>
                    <button className="butt2">Buy Now</button>
               </Link>
             </div>

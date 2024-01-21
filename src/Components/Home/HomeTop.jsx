@@ -7,10 +7,10 @@ function HomeTop() {
       <div className="w-full-top-img  "><img className="w-full-top-img" src={Hommee} alt="Fusion Furnish"/></div>
       
       <div className="w-fulll">
-        <p className="w-fulll-1">
+        <p className="w-fulll-1 animated-text">
           FUSION FURNISH
         </p>
-        <h2 className="w-fulll-2">
+        <h2 className="w-fulll-2 animated-text">
           WE PRODUCE LUXURIOUS FURNITURE
         </h2>
       </div>
