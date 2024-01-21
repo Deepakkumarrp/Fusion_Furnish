@@ -20,8 +20,8 @@ function Contact() {
     <div className="py-5 flex flex-col md:flex-row gap-5 ppp" style={{
       "display": "flex",
       "margin": "auto",
-      "box-sizing": "border-box",
-      "margin-left": "30px"}}>
+      "boxSizing": "border-box",
+      "marginLeft": "30px"}}>
       <div className="md:w-2/5">
         <h3 className="text-dark text-4xl www">Contact Us</h3>
       </div>

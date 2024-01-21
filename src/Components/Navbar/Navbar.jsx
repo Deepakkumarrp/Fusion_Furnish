@@ -27,7 +27,7 @@ const Navbar = () => {
     const [dropDownLogin, setDropDownLogin] = useState(false)
     const [dropDownSearch, setDropDownSearch] = useState(false)
     const [isAuth, setisAuth] = useState(false);
-    const [userName, setUsername] = useState('Deepak');
+    // const [userName, setUsername] = useState('Deepak');
     const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
     const dispatch = useDispatch();
     console.log(user);
@@ -36,7 +36,7 @@ const Navbar = () => {
     // change here to see Admin Panel
     // const [isAdmin , setisAdmin] = useState(false);
 
-    const {isAdmin,isLogin,isLightMode} = useSelector(state => state)
+    const {isAdmin,isLogin} = useSelector(state => state)
     useEffect(() => {
         if(user?.sub == 'auth0|65ad155693eea987226f2bae' || user?.email_verified === true){
             // setisAdmin(true);
@@ -107,9 +107,9 @@ const Navbar = () => {
     console.log(store);
     return (
         <div id='navbar_container' >
-            {/* <pre><code>{JSON.stringify(store,null,2)}</code></pre> */}
             {/* ----------Navbar for Laptop Screen Starts Here ------------ */}
             <div className={style.navbar_bigscreen}>
+            {/* <pre><code>{JSON.stringify(store,null,2)}</code></pre> */}
 
                 <div className={style.logo_navbar}><Link to={"/"}><img src={FusionFurnishLogo} alt="Logo" /></Link></div>
                 <div className={style.navbar_content_container}>
