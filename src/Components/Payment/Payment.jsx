@@ -1,5 +1,8 @@
 import styles from "../Payment/payment.module.css";
- 
+// import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@chakra-ui/react';
+import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@chakra-ui/react';
+
+
 import React, { useState } from "react";
 
 export const PaymentDetails = () => {
@@ -10,7 +13,22 @@ export const PaymentDetails = () => {
   const [phonepay, setPhonpay] = useState(false);
   const [googlepay, setGooglepay] = useState(false);
   const [payTm, setpayTm] = useState(false);
+  const [modal, setModal] = useState(false);
 
+
+  const toggleModal = (e) => {
+    console.log("modaltoggale")
+    e.preventDefault()
+    setTimeout(() => {
+      setModal(!modal);
+    }, 1000)
+  };
+
+  if (modal) {
+    document.body.classList.add('active-modal')
+  } else {
+    document.body.classList.remove('active-modal')
+  }
 
 
   const cardPaymentOption = () => {
@@ -63,22 +81,9 @@ export const PaymentDetails = () => {
   const handlePaymentSubmit = (e) => {
     e.preventDefault();
 
-    console.log("Payment submitted:", {
-      cardNumber: e.target.cardNumber.value,
-      cardHolder: e.target.cardHolder.value,
-      expiryDate: e.target.expiryDate.value,
-      cvc: e.target.cvc.value,
-
-
-    });
-
-
-
     setTimeout(function () {
       alert("Payment Successfull ");
     }, 2000);
-
-
 
     setTimeout(function () {
       alert("Order Successfull");
@@ -140,7 +145,7 @@ export const PaymentDetails = () => {
               <input
                 type="text"
                 id="landmark"
-                placeholder="Enter a landmark (optional)"
+                placeholder="Enter a landmark"
                 required
                 style={inputStyle}
               />
@@ -200,92 +205,86 @@ export const PaymentDetails = () => {
             <button onClick={googlepayoption}><img style={payment_option_imagea} src="https://cdn-icons-png.flaticon.com/128/6124/6124998.png" alt="Google pay" /></button>
             <button onClick={cardPaymentOption}><img style={payment_option_imagea} src="https://cdn-icons-png.flaticon.com/128/14035/14035060.png" alt="" />
             </button>
-
-
           </div>
-
-
-
-
-
         </div>
       )}
 
 
       {/* card payment option */}
       {card &&
-        <div style={formContainerStyle}> <form onSubmit={handlePaymentSubmit}>
-          <div style={formGroupStyle}>
-            <label htmlFor="amount" style={labelStyle}>
-              Amount <span style={{ color: "red" }}>*</span>
-            </label>
-            <input
-              type="text"
-              id="amount"
-              name="amount"
-              value={value}
-              placeholder=" Enter Amount"
-              required
-              style={inputStyle}
-              readOnly
-            />
-          </div>
-          <div style={formGroupStyle}>
-            <label htmlFor="cardNumber" style={labelStyle}>
-              Card Number <span style={{ color: "red" }}>*</span>
-            </label>
-            <input
-              type="number"
-              id="cardNumber"
-              name="cardNumber"
-              placeholder="Enter your card number"
-              required
-              style={inputStyle}
-            />
-          </div>
-          <div style={formGroupStyle}>
-            <label htmlFor="cardHolder" style={labelStyle}>
-              Card Holder <span style={{ color: "red" }}>*</span>
-            </label>
-            <input
-              type="text"
-              id="cardHolder"
-              name="cardHolder"
-              placeholder="Enter the cardholder's name"
-              required
-              style={inputStyle}
-            />
-          </div>
-          <div style={formGroupStyle}>
-            <label htmlFor="expiryDate" style={labelStyle}>
-              Expiry Date <span style={{ color: "red" }}>*</span>
-            </label>
-            <input
-              type="number"
-              id="expiryDate"
-              name="expiryDate"
-              placeholder="MM/YY"
-              required
-              style={inputStyle}
-            />
-          </div>
-          <div style={formGroupStyle}>
-            <label htmlFor="cvc" style={labelStyle}>
-              CVV <span style={{ color: "red" }}>*</span>
-            </label>
-            <input
-              type="number"
-              id="cvv"
-              name="cvv"
-              placeholder="Enter the security code"
-              required
-              style={inputStyle}
-            />
-          </div>
-          <button className={styles.debitCreditbtn} type="submit" style={buttonStyle}>
-            Pay Now
-          </button>
-        </form>
+        <div style={formContainerStyle}>
+          <form onSubmit={handlePaymentSubmit}>
+            <div style={formGroupStyle}>
+              <label htmlFor="amount" style={labelStyle}>
+                Amount <span style={{ color: "red" }}>*</span>
+              </label>
+              <input
+                type="text"
+                id="amount"
+                name="amount"
+                value={value}
+                placeholder=" Enter Amount"
+                required
+                style={inputStyle}
+                readOnly
+              />
+            </div>
+            <div style={formGroupStyle}>
+              <label htmlFor="cardNumber" style={labelStyle}>
+                Card Number <span style={{ color: "red" }}>*</span>
+              </label>
+              <input
+                type="number"
+                id="cardNumber"
+                name="cardNumber"
+                placeholder="Enter your card number"
+                required
+                style={inputStyle}
+              />
+            </div>
+            <div style={formGroupStyle}>
+              <label htmlFor="cardHolder" style={labelStyle}>
+                Card Holder <span style={{ color: "red" }}>*</span>
+              </label>
+              <input
+                type="text"
+                id="cardHolder"
+                name="cardHolder"
+                placeholder="Enter the cardholder's name"
+                required
+                style={inputStyle}
+              />
+            </div>
+            <div style={formGroupStyle}>
+              <label htmlFor="expiryDate" style={labelStyle}>
+                Expiry Date <span style={{ color: "red" }}>*</span>
+              </label>
+              <input
+                type="number"
+                id="expiryDate"
+                name="expiryDate"
+                placeholder="MM/YY"
+                required
+                style={inputStyle}
+              />
+            </div>
+            <div style={formGroupStyle}>
+              <label htmlFor="cvc" style={labelStyle}>
+                CVV <span style={{ color: "red" }}>*</span>
+              </label>
+              <input
+                type="number"
+                id="cvv"
+                name="cvv"
+                placeholder="Enter the security code"
+                required
+                style={inputStyle}
+              />
+            </div>
+            <button className={styles.debitCreditbtn} type="submit" style={buttonStyle}>
+              Pay Now
+            </button>
+          </form>
         </div>
       }
       {/* cash on delivery */}
@@ -294,7 +293,7 @@ export const PaymentDetails = () => {
       {cod &&
         <div style={formContainerStyle}>
           <h2 style={headingStyle}>Cash on Delivery</h2>
-          <form >
+          {/* <form onSubmit={handlePaymentSubmit}> */}
             <div style={formGroupStyle}>
               <label htmlFor="phoneNumber" style={labelStyle}>
                 Phone Number <span style={{ color: "red" }}>*</span>
@@ -325,10 +324,45 @@ export const PaymentDetails = () => {
                 Free (For Cash on Delivery)
               </span>
             </div>
-            <button className="placeorderbtn" type="submit" style={buttonStyle}>
-              Place Order
+            <button style={buttonStyles} type="submit"  onClick={toggleModal}>
+              Pay Now
             </button>
-          </form>
+
+            {modal && (
+
+              <div style={modalStyles}>
+                <div onClick={toggleModal} style={overlayStyles}></div>
+                <div style={modalContentStyles}>
+                  <Alert
+                    status='success'
+                    variant='subtle'
+                    flexDirection='column'
+                    alignItems='center'
+                    justifyContent='center'
+                    textAlign='center'
+                    height='200px'
+                  >
+                    <AlertIcon boxSize='40px' mr={0} color='green.500' />
+                    <AlertTitle mt={4} mb={1} fontSize='lg'>
+                      Payment Succesful
+                    </AlertTitle>
+                    <AlertDescription maxWidth='sm'>
+                      Thank you for payment, Visit again!
+                    </AlertDescription>
+                  </Alert>
+
+                  <button style={modalCloseStyles} onClick={toggleModal}>
+                    {/* <Link to="/">X</Link> */}
+                    X
+                  </button>
+                </div>
+              </div>
+            )}
+
+
+
+
+          {/* </form> */}
         </div>
       }
 
@@ -338,7 +372,7 @@ export const PaymentDetails = () => {
         <div style={formContainerStyle}>
           <p style={{ textAlign: "center", fontSize: "19px" }}>Pay to finish placing your order</p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <button className="ppaygpayptm" style={{ fontWeight: "bold", fontSize: "20px", backgroundColor: "#68bde1", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px ", }}>Click here for redirect to PayTm</button>
+            <button className="ppaygpayptm" style={{ backgroundColor: "rgb(252,205,92)", fontWeight: "bold", fontSize: "20px", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px ", }}>Click here for redirect to PayTm</button>
           </div>
         </div>
       }
@@ -348,7 +382,7 @@ export const PaymentDetails = () => {
         <div style={formContainerStyle}>
           <p style={{ textAlign: "center", fontSize: "20px" }}>Pay to finish placing your order</p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <button className="ppaygpayptm" style={{ fontWeight: "bold", fontSize: "20px", backgroundColor: "#68bde1", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px" }}>Click here for redirect to PhonePay</button>
+            <button className="ppaygpayptm" style={{ backgroundColor: "rgb(252,205,92)", fontWeight: "bold", fontSize: "20px", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px" }}>Click here for redirect to PhonePay</button>
           </div>
 
         </div>
@@ -359,7 +393,7 @@ export const PaymentDetails = () => {
         <div style={formContainerStyle}>
           <p style={{ textAlign: "center", fontSize: "19px" }}>Pay to finish placing your order</p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <button className="ppaygpayptm" style={{ fontWeight: "bold", fontSize: "20px", backgroundColor: "#68bde1", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px" }}>Click here for redirect to GooglePay</button>
+            <button className="ppaygpayptm" style={{ backgroundColor: "rgb(252,205,92)", fontWeight: "bold", fontSize: "20px", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px" }}>Click here for redirect to GooglePay</button>
           </div>
 
         </div>
@@ -380,7 +414,7 @@ const formContainerStyle = {
   borderRadius: "8px",
   // backgroundColor: "#fff",
   boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-  background: "linear-gradient(to top, #dfe9f3 0%, white 100%)"
+  background: "#f8f8f8"
 
 };
 
@@ -420,11 +454,12 @@ const buttonStyle = {
   boxSizing: "border-box",
   border: "none",
   borderRadius: "4px",
-  backgroundColor: "#007BFF",
-  color: "#fff",
+  backgroundColor: "rgb(252,205,92)",
+  color: "black",
   fontSize: "16px",
   cursor: "pointer",
   margin: "auto",
+  fontWeight: "bold"
 };
 
 const headingStyle = {
@@ -463,3 +498,83 @@ const codbuttonb = {
   fontSize: "22px",
   textAlign: "center"
 }
+
+
+const buttonStyles = {
+  display: "block",
+  margin: "100px auto 0",
+  backgroundColor: "black",
+  color: "white",
+  width: "40%",
+  padding: "12px",
+  boxSizing: "border-box",
+  border: "none",
+  borderRadius: "4px",
+  fontSize: "16px",
+  cursor: "pointer",
+  margin: "auto",
+
+  display: "block",
+  width: "20%",
+  padding: "12px",
+  boxSizing: "border-box",
+  border: "none",
+  borderRadius: "4px",
+  backgroundColor: "rgb(252,205,92)",
+  color: "black",
+  fontSize: "16px",
+  cursor: "pointer",
+  margin: "auto",
+  fontWeight: "bold"
+};
+
+const modalStyles = {
+  width: "100vw",
+  height: "100vh",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  position: "fixed",
+};
+
+const overlayStyles = {
+  background: "rgba(49, 49, 49, 0.8)",
+  width: "100vw",
+  height: "100vh",
+  top: 0,
+  left: 0,
+  right: 0,
+  bottom: 0,
+  position: "fixed",
+};
+
+const modalContentStyles = {
+  position: "absolute",
+  top: "40%",
+  left: "50%",
+  transform: "translate(-50%, -50%)",
+  lineHeight: 1.4,
+  background: "#f1f1f1",
+  padding: "14px 28px",
+  borderRadius: "3px",
+  maxWidth: "600px",
+  minWidth: "300px",
+  borderRadius: "10px",
+};
+
+const modalCloseStyles = {
+  position: "absolute",
+  top: "10px",
+  right: "10px",
+  padding: "5px 7px",
+  backgroundColor: "black",
+  color: "white",
+  marginRight: "25px",
+  marginTop: "10px",
+  opacity: 1,
+};
+
+const paymentHeadingStyles = {
+  color: "black",
+};
