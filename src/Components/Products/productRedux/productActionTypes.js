@@ -7,3 +7,11 @@ export const GET_SINGLE_SOFA_SUCCESS = "GET_SINGLE_SOFA_SUCCESS";
 export const GET_SINGLE_SOFA_FAILURE = "GET_SINGLE_SOFA_FAILURE";
 
 export const ADD_TO_CART = "ADD_TO_CART";
+export const REMOVE_FROM_CART = "REMOVE_FROM_CART";
+export const increase_Qty = "increase_Qty";
+export const decrease_Qty =  "decrease_Qty";
+export const clean_Cart = "clean_Cart";
+
+export const DELETE_REQUEST = "DELETE_REQUEST";
+export const UPDATE_REQUEST = "UPDATE_REQUEST";
+export const POST_REQUEST = "POST_REQUEST";

@@ -7,7 +7,6 @@ import { useEffect } from "react";
 import { addToCart, getSofas } from "./productRedux/productAction";
 
 export default function Products() {
-
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getSofas());
@@ -21,12 +20,13 @@ export default function Products() {
 }
 
 const ProductCard = ({ item }) => {
+    // const state = useSelector(state => state);
     const dispatch = useDispatch();
     const toast = useToast();
-    const select = useSelector(state => state);
+    const select = useSelector(state => state.product);
     const navigate = useNavigate();
-    function handleClick() {
-        addToCart(item, dispatch);
+    function handleClick(ele) {
+        addToCart({ ...ele, qty: 1 },dispatch);
         console.log(select);
         <Wrap>
             <WrapItem key={item.id}>
@@ -60,7 +60,7 @@ const ProductCard = ({ item }) => {
               style={{color: "#AFA9A1",fontFamily:" sans-serif", fontWeight:"bold",fontSize:"large" }}
               >More details</Link>
                </p>     
-              <button onClick={handleClick} 
+              <button onClick={() => handleClick(item)}
               >Add to Cart
               </button>
             </div>

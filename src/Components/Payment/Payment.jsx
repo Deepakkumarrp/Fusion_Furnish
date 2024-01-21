@@ -1,11 +1,25 @@
-import styles from "../Payment/payment.module.css";
+import style from "./payment.module.css";
+// import style from "./Navbar.module.css"
+import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 // import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@chakra-ui/react';
 import { Alert, AlertIcon, AlertTitle, AlertDescription } from '@chakra-ui/react';
-
+import { Link } from "react-router-dom";
+// import React from "react";
 
 import React, { useState } from "react";
+// heena css link
+
 
 export const PaymentDetails = () => {
+  const data = useSelector((store) => store.cart)
+  let details = data.reduce((acc, e) => {
+    return { ...acc, qty: acc.qty + e.qty, total: acc.total + Number(e.price) * e.qty }
+  }, { qty: 0, total: 0 })
+  console.log(details)
+  const discount = Math.round(details.total * 24 / 100);
+
+
   const [showPaymentForm, setShowPaymentForm] = useState(false);
   const [value, setValue] = useState(5000);
   const [card, setcard] = useState(false);
@@ -14,6 +28,9 @@ export const PaymentDetails = () => {
   const [googlepay, setGooglepay] = useState(false);
   const [payTm, setpayTm] = useState(false);
   const [modal, setModal] = useState(false);
+  const [modal1, setModal1] = useState(false);
+
+
 
 
   const toggleModal = (e) => {
@@ -21,8 +38,28 @@ export const PaymentDetails = () => {
     e.preventDefault()
     setTimeout(() => {
       setModal(!modal);
+     
     }, 1000)
+
+   
   };
+
+  // function closetoggleModal1(){
+  //   setTimeout(() => {
+  //     setModal(!modal);
+     
+  //   }, 1000)
+
+  //   toggleModal1();
+  // }
+
+  // function toggleModal1(){
+  //   console.log(modal1)
+  
+  //   setModal1(!modal)
+  //   console.log(modal1)
+  // }
+
 
   if (modal) {
     document.body.classList.add('active-modal')
@@ -99,7 +136,7 @@ export const PaymentDetails = () => {
   return (
     <>
       <div style={formContainerStyle}>
-        <h2 style={headingStyle} >Shipping Address</h2>
+        <h2 style={headingStyle} className={style.heading} >Shipping Address</h2>
         <form onSubmit={handleShippingSubmit}>
           <div style={formRowStyle}>
             <div style={formGroupStyle}>
@@ -187,23 +224,23 @@ export const PaymentDetails = () => {
               />
             </div>
           </div>
-          <button className={styles.addressButton} type="submit" style={buttonStyle}>
+          <button className={style.addressbtn}  type="submit" >
             Submit
           </button>
         </form>
       </div>
       {/* -------------------------------------------------------------------------------------------------------------------------------------------- */}
       {showPaymentForm && (
-        <div style={formContainerStyle}>
+        <div style={formContainerStyle} className={style.formmaincontainer}>
           <h2 style={codbuttonb}>Payment Details</h2>
 
-          <div className="paymentoption" style={paymentoption}>
+          <div className={style.paymentoption}>
 
             <button style={codbuttona} onClick={codpaymentoption}>COD</button>
-            <button onClick={paytmoption}><img style={payment_option_imagea} src="https://cdn-icons-png.flaticon.com/128/825/825454.png" alt="paytm" /></button>
+            <button onClick={paytmoption}><img className={style.paytm}  src="https://cdn-icons-png.flaticon.com/128/825/825454.png" alt="paytm" /></button>
             <button onClick={phonepayoption}><img style={payment_option_imageb} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlw6JvTiXBSHHAgLi6eOCGWjcKW_uD0XdH9Q&usqp=CAU" alt="phone pay" /></button>
-            <button onClick={googlepayoption}><img style={payment_option_imagea} src="https://cdn-icons-png.flaticon.com/128/6124/6124998.png" alt="Google pay" /></button>
-            <button onClick={cardPaymentOption}><img style={payment_option_imagea} src="https://cdn-icons-png.flaticon.com/128/14035/14035060.png" alt="" />
+            <button onClick={googlepayoption}><img className={style.paytm} src="https://cdn-icons-png.flaticon.com/128/6124/6124998.png" alt="Google pay" /></button>
+            <button onClick={cardPaymentOption}><img className={style.paytm} src="https://cdn-icons-png.flaticon.com/128/14035/14035060.png" alt="" />
             </button>
           </div>
         </div>
@@ -212,8 +249,9 @@ export const PaymentDetails = () => {
 
       {/* card payment option */}
       {card &&
+        // onSubmit={handlePaymentSubmit}
         <div style={formContainerStyle}>
-          <form onSubmit={handlePaymentSubmit}>
+          <form >
             <div style={formGroupStyle}>
               <label htmlFor="amount" style={labelStyle}>
                 Amount <span style={{ color: "red" }}>*</span>
@@ -222,7 +260,7 @@ export const PaymentDetails = () => {
                 type="text"
                 id="amount"
                 name="amount"
-                value={value}
+                value={details.total - discount}
                 placeholder=" Enter Amount"
                 required
                 style={inputStyle}
@@ -281,53 +319,9 @@ export const PaymentDetails = () => {
                 style={inputStyle}
               />
             </div>
-            <button className={styles.debitCreditbtn} type="submit" style={buttonStyle}>
+            <button className={style.paymentbtn} type="submit" style={buttonStyle} onClick={toggleModal}>
               Pay Now
             </button>
-          </form>
-        </div>
-      }
-      {/* cash on delivery */}
-
-
-      {cod &&
-        <div style={formContainerStyle}>
-          <h2 style={headingStyle}>Cash on Delivery</h2>
-          {/* <form onSubmit={handlePaymentSubmit}> */}
-            <div style={formGroupStyle}>
-              <label htmlFor="phoneNumber" style={labelStyle}>
-                Phone Number <span style={{ color: "red" }}>*</span>
-              </label>
-              <input
-                type="tel"
-                id="phoneNumber"
-                placeholder="Enter your phone number"
-                required
-                style={inputStyle}
-              />
-            </div>
-            <div style={formGroupStyle}>
-              <label htmlFor="amount" style={labelStyle}>
-                Order Amount <span style={{ color: "red" }}>*</span>
-              </label>
-              <input
-                type="text"
-                id="amount"
-                placeholder="Enter the order amount"
-                required
-                style={inputStyle}
-              />
-            </div>
-            <div style={formGroupStyle}>
-              <label style={labelStyle}>Delivery Charges</label>
-              <span style={{ fontSize: "14px", color: "#333" }}>
-                Free (For Cash on Delivery)
-              </span>
-            </div>
-            <button style={buttonStyles} type="submit"  onClick={toggleModal}>
-              Pay Now
-            </button>
-
             {modal && (
 
               <div style={modalStyles}>
@@ -352,15 +346,127 @@ export const PaymentDetails = () => {
                   </Alert>
 
                   <button style={modalCloseStyles} onClick={toggleModal}>
-                    {/* <Link to="/">X</Link> */}
-                    X
+                    <Link to="/">X</Link>
+                 
                   </button>
+{/* ========================================== */}
+                  {modal1 && (
+
+                    <div style={modalStyles}>
+                      <div onClick={toggleModal} style={overlayStyles}></div>
+                      <div style={modalContentStyles}>
+                        <Alert
+                          status='success'
+                          variant='subtle'
+                          flexDirection='column'
+                          alignItems='center'
+                          justifyContent='center'
+                          textAlign='center'
+                          height='200px'
+                        >
+                          <AlertIcon boxSize='40px' mr={0} color='green.500' />
+                          <AlertTitle mt={4} mb={1} fontSize='lg'>
+                            Order  Succesful
+                          </AlertTitle>
+                          <AlertDescription maxWidth='sm'>
+                            Thank you for Order, Visit again!
+                          </AlertDescription>
+                        </Alert>
+
+                        <button style={modalCloseStyles} onClick={toggleModal}>
+                          {/* <Link to="/">X</Link> */}
+                          X
+                        </button>
+                      </div>
+                    </div>
+                  )}
+{/* ===================================================================== */}
+
+
+
+
+
                 </div>
               </div>
             )}
 
 
 
+          </form>
+        </div>
+      }
+      {/* cash on delivery */}
+
+
+      {cod &&
+        <div style={formContainerStyle}>
+          <h2 style={headingStyle}>Cash on Delivery</h2>
+          {/* <form onSubmit={handlePaymentSubmit}> */}
+          <div style={formGroupStyle}>
+            <label htmlFor="phoneNumber" style={labelStyle}>
+              Phone Number <span style={{ color: "red" }}>*</span>
+            </label>
+            <input
+              type="tel"
+              id="phoneNumber"
+              placeholder="Enter your phone number"
+              required
+              style={inputStyle}
+            />
+          </div>
+          <div style={formGroupStyle}>
+            <label htmlFor="amount" style={labelStyle}>
+              Order Amount <span style={{ color: "red" }}>*</span>
+            </label>
+            <input
+              type="text"
+              id="amount"
+              value={details.total - discount}
+              placeholder="Enter the order amount"
+              required
+              style={inputStyle}
+            />
+          </div>
+          <div style={formGroupStyle}>
+            <label style={labelStyle}>Delivery Charges</label>
+            <span style={{ fontSize: "14px", color: "#333" }}>
+              Free (For Cash on Delivery)
+            </span>
+          </div>
+          <button className={style.paymentbtn} style={buttonStyles} type="submit" onClick={toggleModal}>
+            Pay Now
+          </button>
+
+          {modal && (
+
+            <div style={modalStyles}>
+              <div onClick={toggleModal} style={overlayStyles}></div>
+              <div style={modalContentStyles}>
+                <Alert
+                  status='success'
+                  variant='subtle'
+                  flexDirection='column'
+                  alignItems='center'
+                  justifyContent='center'
+                  textAlign='center'
+                  height='200px'
+                >
+                  <AlertIcon boxSize='40px' mr={0} color='green.500' />
+                  <AlertTitle mt={4} mb={1} fontSize='lg'>
+                    Payment Succesful
+                  </AlertTitle>
+                  <AlertDescription maxWidth='sm'>
+                    Thank you for payment, Visit again!
+                  </AlertDescription>
+                </Alert>
+
+                <button style={modalCloseStyles} onClick={toggleModal}>
+                <Link to="/">X</Link>
+                </button>
+              </div>
+
+            </div>
+          )}
 
           {/* </form> */}
         </div>
@@ -468,20 +574,20 @@ const headingStyle = {
   color: "#333",
 };
 
-const paymentoption = {
-  display: "flex",
-  flexDirection: "row",
-  alignItem: "center",
-  gap: "80px",
-  justifyContent: "space-between",
-  height: "170px"
+// const paymentoption = {
+//   display: "flex",
+//   flexDirection: "row",
+//   alignItem: "center",
+//   gap: "80px",
+//   justifyContent: "space-between",
+//   height: "170px"
 
-}
+// }
 
-const payment_option_imagea = {
-  height: "70px",
-  width: "70px"
-}
+// const payment_option_imagea = {
+//   height: "70px",
+//   width: "70px"
+// }
 
 const payment_option_imageb = {
   height: "50px",

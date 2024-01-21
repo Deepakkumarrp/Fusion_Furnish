@@ -213,6 +213,29 @@
 .container > .filterPart > div .fromCountry {
   width: 180px;
 } */
+
+.emptyCard {
+  width: 100%; /* Adjusted width for full width */
+  height: 300px; /* Adjusted height for consistency */
+  border: 2px dashed #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: #555;
+  border-radius: 20px; /* Added border-radius for consistency with other cards */
+  transition: border-color 0.3s;
+}
+
+.emptyCard:hover {
+  border-color: #888;
+}
+
+
 @media only screen and (max-width: 1300px) and (min-width: 840px) {
   .container{
     padding: 25px;

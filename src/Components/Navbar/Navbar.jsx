@@ -9,6 +9,10 @@ import human from "./NavbarImages/human-icon.svg"
 import style from "./Navbar.module.css"
 import "./navbar.css"
 import { Link } from 'react-router-dom'
+import { useDispatch, useSelector } from 'react-redux'
+import { getSofas } from '../Products/productRedux/productAction'
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 
 // import { AddProductType } from '../ProductPage/ProductReducer/action'
@@ -23,6 +27,11 @@ const Navbar = () => {
     const [dropDownSearch, setDropDownSearch] = useState(false)
     const [isAuth, setisAuth] = useState(false);
     const [userName, setUsername] = useState('Deepak');
+    const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
+    const popup = useSelector((state)=>state.cart);
+
+    // change here to see Admin Panel
+    const [isAdmin , setisAdmin] = useState(false);
 
     // const isAuth = useSelector((store) => store.AuthReducer.isAuth);
     // const userName = useSelector((store) => store.AuthReducer.name);
@@ -36,6 +45,7 @@ const Navbar = () => {
     // const dispatch = useDispatch()
     const [searchResults, setsearchResults] = useState("");
     const [close, setClose] = useState(false)
+    const dispatch = useDispatch();
     // const debounce = useRef();
     // const [searchedData, setSearchedData] = useState([])
     // const navigate = useNavigate();
@@ -64,6 +74,16 @@ const Navbar = () => {
     // }, [searchResults])
 
 
+// Written by raushan
+    // {isAuthenticated && <span id='span'>Hi {user.name}</span>}
+    //                     {isAuthenticated ?(
+    //                        <Nav.Link> <Button variant="primary" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+    //                         Log Out
+    //                     </Button></Nav.Link>
+    //                     ):(
+    //                         <Button variant="primary" onClick={() => loginWithRedirect()}>Log In</Button>
+    //                     )}
+
     return (
         <div id='navbar_container' >
             {/* ----------Navbar for Laptop Screen Starts Here ------------ */}
@@ -77,8 +97,8 @@ const Navbar = () => {
 
                             <p><Link to={"/payment"} className={style.link}>Payment</Link></p>
                             <p><Link to={"#"} className={style.link}>Blog</Link></p>
-                            <p><Link to={"#"} className={style.link}>Portfolio</Link></p>
-                            <p><Link to={"#"} className={style.link}>About us</Link></p>
+                            <p><Link to={"/about"} className={style.link}>About us</Link></p>
+                            <p><Link to={"/admin/products"} className={style.link}>Admin</Link></p>
                         </div>
                         <div>
                             <div className={style.search_icon}>
@@ -96,30 +116,40 @@ const Navbar = () => {
                                     </div>) : (<></>)
                                 } */}
                             </div>
+                            {/* By Raushan */}
+                            {/* <span><Button variant="primary" onClick={() => loginWithRedirect()}>Log In</Button></span> */}
+                            {/* {isAuthenticated && <span id='span'>Hi {user.name}</span>}
+                        {isAuthenticated ?(
+                           <Nav.Link> <Button variant="primary" onClick={() => logout({ logoutParams: { returnTo: window.location.origin } })}>
+                            Log Out
+                        </Button></Nav.Link>
+                        ):(
+                            <Button variant="primary" onClick={() => loginWithRedirect()}>Log In</Button>
+                        )} */}
                             {
-                                !isAuth ? (<p><Link to={"/login"} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin); setDropDownSearch(false) }} />
+                                !isAuthenticated ? (<p><Link to={"/login"} onClick={() => loginWithRedirect()} className={style.link}><b>Login</b></Link></p>) : (<div className={style.humanIcon}><img src={human} alt="" onClick={() => { setDropDownLogin(!dropDownLogin); setDropDownSearch(false) }} />
                                     {
                                         dropDownLogin ? (<div className={style.logindropdown}>
-                                            <div onClick={() => { navigate("/"); setDropDownLogin(false) }}>{userName}</div>
+                                            <div onClick={() => { navigate("/"); setDropDownLogin(false) }}>{user.name}</div>
                                             <div onClick={() => { navigate("/cart"); setDropDownLogin(false) }}>My Cart</div>
-                                            <div onClick={() => { dispatch(userLogout()); setDropDownLogin(false) }}>Logout</div>
+                                            <div onClick={() => { logout({ logoutParams: { returnTo: window.location.origin } });dispatch(userLogout()); setDropDownLogin(false) }}>Logout</div>
                                         </div>) : (<></>)
                                     }
                                 </div>)
                             }
 
                             <Link to="/cart"><img src={cart} className={style.navbar_cart} />
-                                <p className={style.countBigScreen}></p>
+                                <p className={style.countBigScreen}>{popup.length}</p>
 
                             </Link>
                         </div>
                     </div>
                     <div className={style.navbar_bottom}>
                         <div>
-                            <p ><Link to={"/products"} className={style.link}>SOFAS</Link></p>
-                            <p ><Link to={"/products"} className={style.link}>BED</Link></p>
-                            <p ><Link to={"/products"} className={style.link}>CHILDREN'S FURNITURE</Link></p>
-                            <p ><Link to={"/products"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
+                            <p onClick={()=>dispatch(getSofas("Sofas"))}><Link to={isAdmin?"/admin/products":"/products"} className={style.link}>SOFAS</Link></p>
+                            <p onClick={()=>dispatch(getSofas("Beds"))} ><Link to={isAdmin?"/admin/products":"/products"} className={style.link}>BEDS</Link></p>
+                            <p onClick={()=>dispatch(getSofas("ChildrenFurniture"))}><Link to={isAdmin?"/admin/products":"/products"} className={style.link}>CHILDREN'S FURNITURE</Link></p>
+                            <p onClick={()=>dispatch(getSofas("ArmChair"))} ><Link to={isAdmin?"/admin/products":"/products"} className={style.link}>ARMCHAIRS AND POUFS</Link></p>
                         </div>
                         <div>
                             <div><b style={{ fontSize: "0.9rem" }}>+91 8802244680</b></div>
@@ -162,7 +192,7 @@ const Navbar = () => {
                     }
                     <div>
                         <img src={cart} className={style.navbar_cart} onClick={() => { navigate("/cart") }} />
-                        <p className={style.countBigScreen}></p>
+                        <p className={style.countBigScreen}>{popup.length}</p>
                     </div>
                     <img src={clickedHumburger ? cross : burger} className={style.navbar_humburger} onClick={() => { setClickedHumburger(!clickedHumburger) }} />
                 </div>
