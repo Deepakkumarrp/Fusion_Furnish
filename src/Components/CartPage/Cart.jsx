@@ -61,7 +61,7 @@ const Cart = () => {
       </div>
       <div>
         {
-          isAuthenticated ? (<PriceDetail onclick={() => { navigate("/address") }} title={"Checkout"} />) : (<PriceDetail onclick={() => { navigate("/") }} title={"First Login"} />)
+          isAuthenticated ? (<PriceDetail onclick={() => { navigate("/payment") }} title={"Checkout"} />) : (<PriceDetail onclick={() => { navigate("/") }} title={"First Login"} />)
         }
 
       </div>
