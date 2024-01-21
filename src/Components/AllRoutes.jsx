@@ -8,6 +8,7 @@ import About from "./About/About";
 import AdminProducts from "./Admin/AdminProducts";
 import AdminProductDetails from "./Admin/AdminProductDetails";
 import AddNewProduct from "./Admin/AddNewProduct";
+import Cart from "./CartPage/Cart";
 
 
 export default function AllRoutes(){
@@ -17,7 +18,7 @@ export default function AllRoutes(){
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About />} />
         {/* Raushan add Login and Sign below */}
-
+        <Route path="/cart" element={<Cart/>}/>
 
         {/* <Route path="/login"/> */}
         {/* Poornima do edit below if required */}
