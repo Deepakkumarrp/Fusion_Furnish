@@ -11,7 +11,7 @@ import PlusSignLogo from "../Images/PlusSign.png"
 
 
 export default function AdminProducts() {
-    const { sofas, isLoading } = useSelector(state => state.product);
+    const { sofas, isLoading } = useSelector(state => state);
     const [sofaData,setSofaData] = useState([]);
     const navigate = useNavigate();
     const dispatch = useDispatch();
