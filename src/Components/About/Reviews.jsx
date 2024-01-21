@@ -44,7 +44,7 @@ function Reviews() {
             </div>
             <div className="px-1">
               <div className="flex justify-between text-sm text-gray-500 py-2 mt-2">
-                <p className="ggg">Natella Mankaeva</p>
+                <p className="ggg">Gerber katya</p>
                 <p>04/20/2023</p>
               </div>
               <div className="container overflow-hidden">
@@ -66,7 +66,7 @@ function Reviews() {
             </div>
             <div className="px-1">
               <div className="flex justify-between text-sm text-gray-500 py-2 mt-2">
-                <p className="ggg">Natella Mankaeva</p>
+                <p className="ggg">Gerber katya</p>
                 <p>04/20/2023</p>
               </div>
               <div className="container overflow-hidden">
@@ -88,12 +88,12 @@ function Reviews() {
             </div>
             <div className="px-1">
               <div className="flex justify-between text-sm text-gray-500 py-2 mt-2">
-                <p className="ggg">Natella Mankaeva</p>
+                <p className="ggg">Mariya Keller</p>
                 <p>04/20/2023</p>
               </div>
               <div className="container overflow-hidden">
                 <p className="text-xs text-gray-700 text-justify line-clamp-4">
-                  " Presentation of poufs and a sofa at the Moscow Design and
+                  "Presentation of poufs and a sofa at the Moscow Design and
                   Interior Week exhibition. Visitors appreciated the fabrics and
                   shapes of our poufs. Among the new items was the Curve pouf"
                 </p>
@@ -109,7 +109,7 @@ function Reviews() {
             </div>
             <div className="px-1">
               <div className="flex justify-between text-sm text-gray-500 py-2 mt-2">
-                <p className="ggg">Natella Mankaeva</p>
+                <p className="ggg">Babayants Mankaeva</p>
                 <p>04/20/2023</p>
               </div>
               <div className="container overflow-hidden">
