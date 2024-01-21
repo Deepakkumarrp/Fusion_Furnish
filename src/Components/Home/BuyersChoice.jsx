@@ -50,7 +50,7 @@ const BuyersChoice = () => {
         <h3 className="text-dark text-3xl md:text-4xl py-10  BY">Buyers' Choice</h3>
       </div>
       <div className="Bttons_top_bar">
-        {["sofas", "beds", "childrenFurniture", "armchairsAndPoufs"].map((category) => (
+        {["sofas", "beds", "children's Furniture", "armchairs And Poufs"].map((category) => (
           <button 
             key={category}
             className={`px-4 py-2 hhh ${
