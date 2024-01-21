@@ -1,0 +1,251 @@
+/* 
+.singleCard {
+  margin:auto;
+  
+  display: grid;
+
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+} */
+
+.container{
+    width: 90%;
+    margin: auto;
+    /* display: flex; */
+    /* border: 2px solid black; */
+   
+}
+.container h1 {
+  font-weight: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+
+}
+.singleCard {
+  width: 90%;
+  margin:auto;
+  margin-top:70px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 35px;
+  /* border: 1px solid red; */
+  /* border:solid; */
+}
+
+.loading {
+  padding-top: 120px;
+  height: 65vh;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+/* media queries */
+
+@media (max-width: 600px) {
+  .singleCard {
+    grid-template-columns: repeat(1, 1fr);
+   
+  }
+  .container{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+  }
+  .mainCard > .topCover > p {
+    font-size: 1.8rem;
+  }
+  .topCover .input {
+    width: 300px;
+  }
+  .topCover > .location {
+    /* color: red; */
+    margin-left: -23rem;
+    margin-top: -4rem;
+  }
+}
+
+@media only screen and (max-width: 840px) and (min-width: 600px) {
+  .singleCard {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .container{
+    padding: 25px;
+  }
+  .filterPart {
+    display: none;
+  }
+}
+
+/* single image card */
+
+.singleCard > div img {
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+  transition: all ease 1s;
+}
+
+.singleCard > div img:hover {
+  cursor: pointer;
+  opacity: 1;
+  -webkit-animation: flash 2s;
+  animation: flash 2s;
+  scale: 1.2;
+}
+@-webkit-keyframes flash {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes flash {
+  0% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/* signle card whole div */
+
+.singleCard > div {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  overflow: hidden;
+}
+.singleCard > div > .nameDiv {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top:10px;
+}
+.nameDiv > span {
+  display: flex;
+  align-content: center;
+  justify-content: space-around;
+}
+
+.singleCard hr {
+  margin-top: -5px;
+}
+.singleCard hr + p {
+  padding: 10px;
+  margin-top: -18px;
+}
+
+.singleCard > div > .priceDiv {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  margin-top: -25px;
+}
+.singleCard > div > .priceDiv p {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.singleCard > div > .priceDiv button {
+  width: 180px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: sans-serif;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border: none;
+  border-radius: 10px;
+  background-color:#7D777C;
+  color: white;
+}
+
+.singleCard > div > .priceDiv button:hover {
+  cursor: pointer;
+  background-color:#4f484e;
+}
+
+.container > .nextBtn span {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 22px;
+}
+.container > .nextBtn > button {
+  width: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-family: cursive;
+  font-size: 18px;
+  border: none;
+  background-color: plum;
+  color: black;
+}
+.container > .nextBtn > button:hover {
+  background-color: black;
+  color: white;
+}
+
+/* filter part */
+
+/* .container > .filterPart > div {
+  display: flex;
+  justify-content: center;
+  width: 40%;
+  margin-left: 45rem;
+  align-items: center;
+  gap: 20px;
+}
+.container > .filterPart > div > div {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #c4c4c4;
+  font-family: cursive;
+}
+.container > .filterPart > div .fromCountry {
+  width: 180px;
+} */
+
+.emptyCard {
+  width: 100%; /* Adjusted width for full width */
+  height: 300px; /* Adjusted height for consistency */
+  border: 2px dashed #ccc;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 18px;
+  color: #555;
+  border-radius: 20px; /* Added border-radius for consistency with other cards */
+  transition: border-color 0.3s;
+}
+
+.emptyCard:hover {
+  border-color: #888;
+}
+
+
+@media only screen and (max-width: 1300px) and (min-width: 840px) {
+  .container{
+    padding: 25px;
+  }
+}
+@media (min-width: 1300px) {
+  .container {
+    width: 85vw;
+    padding: 100px;
+  }
+}
+@media (max-width: 600px) {
+}
