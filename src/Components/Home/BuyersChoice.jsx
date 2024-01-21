@@ -19,24 +19,24 @@ const BuyersChoice = () => {
 
   const data = {
     sofas: [
-      { name: "DAVE SOFA", price: "₹25200", image: Sofa1 },
-      { name: "SOFA CITY", price: "$26500", image: Sofa2 },
-      { name: "SOFA LOOP", price: "₹21200", image: Sofa3 },
+      { name: "DAVE SOFA", price: "₹18999", image: Sofa1 },
+      { name: "SOFA CITY", price: "₹20999", image: Sofa2 },
+      { name: "SOFA LOOP", price: "₹22999", image: Sofa3 },
     ],
     beds: [
-      { name: "Bed 1", price: "$800", image: Bed1 },
-      { name: "Bed 2", price: "$1000", image: Bed2 },
-      { name: "SOFA LOOP", price: "₹21200", image: Bed3 },
+      { name: "BED SIMPLE", price: "₹15999", image: Bed1 },
+      { name: "BED JULE", price: "₹17999", image: Bed2 },
+      { name: "BED MELANIA", price: "₹20999", image: Bed3 },
     ],
     childrenFurniture: [
-      { name: "SOFA LOOP", price: "₹21200", image: CF1 },
-      { name: "SOFA LOOP", price: "₹21200", image: CF2 },
-      { name: "SOFA LOOP", price: "₹21200", image: CF3 },
+      { name: "CHILDREN'S BED SOFTY", price: "₹11999", image: CF1 },
+      { name: "CHILDREN'S BED CLOUD", price: "₹14999", image: CF2 },
+      { name: "CHILDREN'S BED SEA", price: "₹16999", image: CF3 },
     ],
     armchairsAndPoufs: [
-      { name: "SOFA LOOP", price: "₹21200", image: AR1 },
-      { name: "SOFA LOOP", price: "₹21200", image: AR2 },
-      { name: "SOFA LOOP", price: "₹21200", image: AR3 },
+      { name: "BANQUETTE MADE OF SOLID", price: "₹8999", image: AR1 },
+      { name: "ARMCHAIR TWIGGY", price: "₹9999", image: AR2 },
+      { name: "BENCH SFERA", price: "₹11999", image: AR3 },
     ],
   };
 
@@ -76,9 +76,9 @@ const BuyersChoice = () => {
               <h4 className="text-2xl py-3 md:py-2 font-medium">{item.name}</h4>
               <p className="text-xs font-base text-gray-400">{`Price: ${item.price}`}</p>
               <button className="butt1">Details</button>
-              <Link to={`/product-details/${item.name}`}>
-  <button className="butt2">Buy Now</button>
-</Link>
+              <Link to={`/product/5/${item.name}`}>
+                   <button className="butt2">Buy Now</button>
+              </Link>
             </div>
           </div>
         ))}
