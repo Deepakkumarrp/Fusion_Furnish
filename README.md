@@ -64,17 +64,17 @@ Preview the live template here: [Fusion Furnish live demo](https://fusionfurnish
 ### Home Page
 ![Home page](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Screenshots/HomePage.png)
 
-### Login 
+### Register/Login Page
 ![Login](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Screenshots/LoginPage.png)
 
 ### Products Page
 
 ![Products](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Screenshots/ProductPage.png)
 
-### Product details
+### Product details Page
 ![Products details](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Screenshots/ProductDetailPage.png)
 
-### About
+### About Us
 ![Our Team](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Screenshots/TeamPage.png)
 ![Reviews](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Screenshots/Reviews.png)
 
@@ -85,7 +85,7 @@ Preview the live template here: [Fusion Furnish live demo](https://fusionfurnish
 
 
 ## Contributors
-1. <a href="[https://github.com/underiya](https://github.com/Deepakkumarrp)" target="_blank">Deepak Purohit</a> 
+1. <a href="https://github.com/Deepakkumarrp" target="_blank">Deepak Purohit</a> 
 2. <a href="https://github.com/Rohit27082000" target="_blank">Rohit Kumar</a>  
 3. <a href="https://github.com/parveenheena" target="_blank"> Heena Parveen</a>
 4. <a href="https://github.com/PoornimaMohabe" target="_blank">Poornima Mohabe</a>
