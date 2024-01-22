@@ -115,8 +115,7 @@ const Navbar = () => {
                 <div className={style.navbar_content_container}>
                     <div className={style.navbar_top}>
                         <div>
-                            <p><Link to={"#"} className={style.link}>Individual project</Link></p>
-
+                            <p><Link to={"/"} className={style.link}>Home</Link></p>
                             <p><Link to={"/payment"} className={style.link}>Payment</Link></p>
                             <p><Link to={"#"} className={style.link}>Blog</Link></p>
                             <p><Link to={"/about"} className={style.link}>About us</Link></p>

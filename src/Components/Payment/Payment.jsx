@@ -618,19 +618,7 @@ const buttonStyles = {
   borderRadius: "4px",
   fontSize: "16px",
   cursor: "pointer",
-  margin: "auto",
 
-  display: "block",
-  width: "20%",
-  padding: "12px",
-  boxSizing: "border-box",
-  border: "none",
-  borderRadius: "4px",
-  backgroundColor: "rgb(252,205,92)",
-  color: "black",
-  fontSize: "16px",
-  cursor: "pointer",
-  margin: "auto",
   fontWeight: "bold"
 };
 
@@ -663,7 +651,6 @@ const modalContentStyles = {
   lineHeight: 1.4,
   background: "#f1f1f1",
   padding: "14px 28px",
-  borderRadius: "3px",
   maxWidth: "600px",
   minWidth: "300px",
   borderRadius: "10px",
