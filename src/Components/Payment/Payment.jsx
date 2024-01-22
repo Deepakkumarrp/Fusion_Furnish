@@ -453,10 +453,10 @@ export const PaymentDetails = () => {
                 >
                   <AlertIcon boxSize='40px' mr={0} color='green.500' />
                   <AlertTitle mt={4} mb={1} fontSize='lg'>
-                    Payment Succesful
+                    Order Succesful
                   </AlertTitle>
                   <AlertDescription maxWidth='sm'>
-                    Thank you for payment, Visit again!
+                    Thank you for Order, Visit again!
                   </AlertDescription>
                 </Alert>
 
