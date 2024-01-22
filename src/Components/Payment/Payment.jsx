@@ -655,7 +655,6 @@ const modalContentStyles = {
   lineHeight: 1.4,
   background: "#f1f1f1",
   padding: "14px 28px",
-  borderRadius: "3px",
   maxWidth: "600px",
   minWidth: "300px",
   // borderRadius: "10px",
