@@ -1,4 +1,4 @@
-# TravelBee
+# Fusion Furnish
 
 Fusion Furnish, crafted by Team Debug-Daksh, boasts a range of user-friendly functionalities. Our intuitive product page lets users explore diverse furniture seamlessly, while the 'Add to Cart' feature ensures a smooth shopping process with instant notifications. Navigating the site is a breeze with the thoughtful filter option. Adding an extra layer, we've incorporated an admin page, empowering administrators to manage products and oversee site operations. Fusion Furnish is more than aesthetics; it's a harmonious blend of style and practicality in online furniture shopping.
 Preview the live template here: [Fusion Furnish live demo](https://fusionfurnish.vercel.app/)
