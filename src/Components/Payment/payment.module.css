@@ -65,10 +65,14 @@ width: 50px;
     height: 150px;
     /* border: 2px solid red; */
   
+
+    
   }
   .paytm{
     height: 40px;
     width: 40px;
+
+
 
   }
   .phonepay{
@@ -76,13 +80,29 @@ width: 50px;
     width: 30px;
   }
 }
+/* style={{ backgroundColor: "rgb(252,205,92)", fontWeight: "bold", fontSize: "20px", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px" }} */
 
-
+.largebutton{
+background-color: rgb(252,205,92);
+font-weight: bold;
+font-size: 20px;
+width: 65%;
+height: 50px;
+border-radius: 5px;
+margin-top: 40px;
+}
 
 
 @media (max-width:570px) {
   .paymentoption {
     display: flex;
     flex-wrap: wrap;
+  }
+}
+
+@media (max-width:520px) {
+  .largebutton {
+    font-size: 15px;
+    width: 60%;
   }
 }

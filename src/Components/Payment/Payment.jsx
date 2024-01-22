@@ -238,7 +238,7 @@ export const PaymentDetails = () => {
 
             <button style={codbuttona} onClick={codpaymentoption}>COD</button>
             <button onClick={paytmoption}><img className={style.paytm}  src="https://cdn-icons-png.flaticon.com/128/825/825454.png" alt="paytm" /></button>
-            <button onClick={phonepayoption}><img style={payment_option_imageb} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlw6JvTiXBSHHAgLi6eOCGWjcKW_uD0XdH9Q&usqp=CAU" alt="phone pay" /></button>
+            <button onClick={phonepayoption}><img className={style.phonepay} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlw6JvTiXBSHHAgLi6eOCGWjcKW_uD0XdH9Q&usqp=CAU" alt="phone pay" /></button>
             <button onClick={googlepayoption}><img className={style.paytm} src="https://cdn-icons-png.flaticon.com/128/6124/6124998.png" alt="Google pay" /></button>
             <button onClick={cardPaymentOption}><img className={style.paytm} src="https://cdn-icons-png.flaticon.com/128/14035/14035060.png" alt="" />
             </button>
@@ -453,10 +453,10 @@ export const PaymentDetails = () => {
                 >
                   <AlertIcon boxSize='40px' mr={0} color='green.500' />
                   <AlertTitle mt={4} mb={1} fontSize='lg'>
-                    Payment Succesful
+                    Order Succesful
                   </AlertTitle>
                   <AlertDescription maxWidth='sm'>
-                    Thank you for payment, Visit again!
+                    Thank you for Order, Visit again!
                   </AlertDescription>
                 </Alert>
 
@@ -478,17 +478,20 @@ export const PaymentDetails = () => {
         <div style={formContainerStyle}>
           <p style={{ textAlign: "center", fontSize: "19px" }}>Pay to finish placing your order</p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <button className="ppaygpayptm" style={{ backgroundColor: "rgb(252,205,92)", fontWeight: "bold", fontSize: "20px", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px ", }}>Click here for redirect to PayTm</button>
+            <button className={style.largebutton} >Click here for redirect to PayTm</button>
           </div>
         </div>
       }
+
+
+
 
       {/* phone pay option  */}
       {phonepay &&
         <div style={formContainerStyle}>
           <p style={{ textAlign: "center", fontSize: "20px" }}>Pay to finish placing your order</p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <button className="ppaygpayptm" style={{ backgroundColor: "rgb(252,205,92)", fontWeight: "bold", fontSize: "20px", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px" }}>Click here for redirect to PhonePay</button>
+            <button className={style.largebutton}>Click here for redirect to PhonePay</button>
           </div>
 
         </div>
@@ -499,7 +502,7 @@ export const PaymentDetails = () => {
         <div style={formContainerStyle}>
           <p style={{ textAlign: "center", fontSize: "19px" }}>Pay to finish placing your order</p>
           <div style={{ display: "flex", justifyContent: "center" }}>
-            <button className="ppaygpayptm" style={{ backgroundColor: "rgb(252,205,92)", fontWeight: "bold", fontSize: "20px", width: "65%", height: "50px", borderRadius: "5px", marginTop: "40px" }}>Click here for redirect to GooglePay</button>
+            <button className={style.largebutton}>Click here for redirect to GooglePay</button>
           </div>
 
         </div>
@@ -589,11 +592,11 @@ const headingStyle = {
 //   width: "70px"
 // }
 
-const payment_option_imageb = {
-  height: "50px",
-  width: "50px",
-  borderRadius: "5px"
-}
+// const payment_option_imageb = {
+//   height: "50px",
+//   width: "50px",
+//   borderRadius: "5px"
+// }
 const codbuttona = {
   fontWeight: "bold",
   fontSize: "22px"
@@ -607,18 +610,19 @@ const codbuttonb = {
 
 
 const buttonStyles = {
+  
+
   display: "block",
-  margin: "100px auto 0",
-  backgroundColor: "black",
-  color: "white",
-  width: "40%",
+  width: "20%",
   padding: "12px",
   boxSizing: "border-box",
   border: "none",
   borderRadius: "4px",
+  backgroundColor: "rgb(252,205,92)",
+  color: "black",
   fontSize: "16px",
   cursor: "pointer",
-
+  margin: "auto",
   fontWeight: "bold"
 };
 
@@ -653,7 +657,7 @@ const modalContentStyles = {
   padding: "14px 28px",
   maxWidth: "600px",
   minWidth: "300px",
-  borderRadius: "10px",
+  // borderRadius: "10px",
 };
 
 const modalCloseStyles = {
