@@ -610,18 +610,7 @@ const codbuttonb = {
 
 
 const buttonStyles = {
-  display: "block",
-  margin: "100px auto 0",
-  backgroundColor: "black",
-  color: "white",
-  width: "40%",
-  padding: "12px",
-  boxSizing: "border-box",
-  border: "none",
-  borderRadius: "4px",
-  fontSize: "16px",
-  cursor: "pointer",
-  margin: "auto",
+  
 
   display: "block",
   width: "20%",
@@ -669,7 +658,7 @@ const modalContentStyles = {
   borderRadius: "3px",
   maxWidth: "600px",
   minWidth: "300px",
-  borderRadius: "10px",
+  // borderRadius: "10px",
 };
 
 const modalCloseStyles = {
