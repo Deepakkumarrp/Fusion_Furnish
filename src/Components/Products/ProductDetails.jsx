@@ -9,7 +9,7 @@ export default function ProductDetails() {
     // const state = useSelector(state => state.product);
 
     // console.log(state);
-    const {sofa} = useSelector(state=>state.product);
+    const {sofa} = useSelector(state=>state);
     useEffect(() => {
         dispatch(getsingleSofa(id));
     }, [id])
