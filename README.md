@@ -47,12 +47,16 @@ Preview the live template here: [Fusion Furnish live demo](https://fusionfurnish
    git clone https://github.com/Deepakkumarrp/debug-daksh-7543.git
 2. Unzip the file if you've downloaded  it as a ZIP.
 3. Open the folder in your text editor.
-4. For dependencies: npm i
-5. For running the application: npm run dev
+4. For dependencies:
+ ```bash
+   npm i
+5. For running the application:
+```bash
+  npm run dev
 
    <br>
 
-#PROJECT LOGO
+## PROJECT LOGO
 <br>
 
 ![clear logo-crop](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Navbar/NavbarImages/FusionFurnishLogo.png)
@@ -62,9 +66,6 @@ Preview the live template here: [Fusion Furnish live demo](https://fusionfurnish
 ### Home Page
 ![Home page](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Screenshots/HomePage.png)
 
-### Admin Dashboard
-![Admin Dashboard](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Screenshots/AdminDashboard.png)
-
 ### Login 
 ![Login](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Screenshots/LoginPage.png)
 
@@ -72,14 +73,14 @@ Preview the live template here: [Fusion Furnish live demo](https://fusionfurnish
 
 ![Products](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Screenshots/ProductPage.png)
 
-### Products details
+### Product details
 ![Products details](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Screenshots/ProductDetailPage.png)
 
 ### About
 ![Our Team](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Screenshots/TeamPage.png)
 ![Reviews](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Screenshots/Reviews.png)
 
-### Admin Page
+### Admin Dashboard
 ![Admin](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Screenshots/AdminDashboard.png)
 ![CRUD](https://github.com/Deepakkumarrp/debug-daksh-7543/blob/master/src/Components/Screenshots/AddProductPage.png)
 
