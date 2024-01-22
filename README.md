@@ -48,11 +48,9 @@ Preview the live template here: [Fusion Furnish live demo](https://fusionfurnish
 2. Unzip the file if you've downloaded  it as a ZIP.
 3. Open the folder in your text editor.
 4. For dependencies:
- ```bash
    npm i
 5. For running the application:
-```bash
-  npm run dev
+   npm run dev
 
    <br>
 
