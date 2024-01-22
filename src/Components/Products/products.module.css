@@ -193,26 +193,7 @@
   color: white;
 }
 
-/* filter part */
 
-/* .container > .filterPart > div {
-  display: flex;
-  justify-content: center;
-  width: 40%;
-  margin-left: 45rem;
-  align-items: center;
-  gap: 20px;
-}
-.container > .filterPart > div > div {
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #c4c4c4;
-  font-family: cursive;
-}
-.container > .filterPart > div .fromCountry {
-  width: 180px;
-} */
 @media only screen and (max-width: 1300px) and (min-width: 840px) {
   .container{
     padding: 25px;
@@ -223,6 +204,4 @@
     width: 85vw;
     padding: 100px;
   }
-}
-@media (max-width: 600px) {
 }
