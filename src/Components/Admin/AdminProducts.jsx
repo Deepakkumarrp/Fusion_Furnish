@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { addToCart, deleteSofa, getSofas } from "../Products/productRedux/productAction";
 import { DELETE_REQUEST } from "../Products/productRedux/productActionTypes";
 import PlusSignLogo from "../Images/PlusSign.png"
+import load from "../Images/loading.gif"
 
 
 export default function AdminProducts() {
@@ -26,6 +27,11 @@ export default function AdminProducts() {
         setSofaData(sofas);
     },[sofas])
     console.log(sofaData);
+    if (isLoading) {
+        return (
+          <div className={styles.loading}><div><img src={load} alt="Loader" /></div></div>
+        )
+      }
     return (
         <div className={styles.singleCard}>
             {/* Add a card for adding a new product */}

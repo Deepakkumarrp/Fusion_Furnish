@@ -30,7 +30,7 @@ const Navbar = () => {
     // const [userName, setUsername] = useState('Deepak');
     const { loginWithRedirect, isAuthenticated, logout, user } = useAuth0();
     const dispatch = useDispatch();
-    console.log(user);
+    // console.log(user);
     const popup = useSelector((state)=>state.cart);
 
     // change here to see Admin Panel

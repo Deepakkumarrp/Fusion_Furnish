@@ -5,6 +5,7 @@ import { useToast, Wrap, WrapItem } from '@chakra-ui/react'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { addToCart, getSofas } from "./productRedux/productAction";
+import load from "../Images/loading.gif"
 
 export default function Products() {
     const dispatch = useDispatch();
@@ -12,6 +13,13 @@ export default function Products() {
         dispatch(getSofas());
     }, [])
     const { sofas, isLoading } = useSelector(state => state);
+    console.log(isLoading);
+    // Adding loader
+    if (isLoading) {
+        return (
+          <div className={styles.loading}><div><img src={load} alt="Loader" /></div></div>
+        )
+      }
     return (
         <div className={styles.singleCard}>
             {sofas.map(item => <ProductCard item={item} />)}
@@ -20,7 +28,6 @@ export default function Products() {
 }
 
 const ProductCard = ({ item }) => {
-    // const state = useSelector(state => state);
     const dispatch = useDispatch();
     const toast = useToast();
     const select = useSelector(state => state.product);
@@ -46,6 +53,7 @@ const ProductCard = ({ item }) => {
             </WrapItem>
         </Wrap>
     }
+
     return (
         <div key={item.id}>
             <img src={item.image} alt="" />
